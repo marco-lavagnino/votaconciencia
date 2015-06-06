@@ -36,3 +36,7 @@ def index_perfil(request, idc):
     propuestas = Propuesta.objects.all().filter(candidato__id=idc)
     ctx = {"candidato":candidato,"propuestas":propuestas}
     return render(request, 'home/index_perfil.html',ctx)
+
+
+def informacion (request):
+    return render(request, 'home/info.html', {})
