@@ -1,14 +1,16 @@
+# -*- encoding: utf-8 -*-
+
 from django.db import models
 
 
 class Candidato(models.Model):
     nombre = models.CharField(max_length=100)
-    foto = models.ImageField()
+    foto = models.ImageField(null=True, blank=True)
     bio = models.TextField()
     twitter = models.URLField(null=True)
     facebook = models.URLField(null=True)
     pagina_personal = models.URLField(null=True)
-    boleta = models.ImageField(null=True)
+    boleta = models.ImageField(null=True, blank=True)
     partido = models.ForeignKey('Partido')
     eleccion = models.ForeignKey('Eleccion')
 
@@ -22,7 +24,7 @@ class Candidato(models.Model):
 class Partido(models.Model):
     nombre = models.CharField(max_length=100)
     abreviacion = models.CharField(max_length=30)
-    logo = models.ImageField()
+    logo = models.ImageField(null=True, blank=True)
     color = models.CharField(max_length=6)
 
     class Meta:
