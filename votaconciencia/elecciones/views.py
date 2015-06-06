@@ -21,7 +21,7 @@ def eleccion_individual(request, id):
 
     for partido in Partido.objects.all():
         p = partido
-        candidatos = Candidato.objects.filter(eleccion__id=id)
+        candidatos = Candidato.objects.filter(eleccion__id=id,partido__id=partido.id)
         tuplas.append((p, candidatos))
 
     dictionary = {
