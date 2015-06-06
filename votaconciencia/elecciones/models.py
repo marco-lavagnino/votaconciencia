@@ -35,7 +35,7 @@ class Partido(models.Model):
 class Propuesta(models.Model):
     candidato = models.ForeignKey('Candidato')
     descripcion = models.TextField()
-    cumplida = models.BooleanField()
+    cumplida = models.BooleanField(default = False)
 
     class Meta:
         verbose_name = "Propuesta"
