@@ -1,5 +1,17 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block contenedor %}
-  <h1>VotaConciencia</h1>
+<div class="text-center">
+<h1>Bienvenido</h1>
+<p> 
+    <a href="/elecciones"><button type="button" class="btn boton-inicio btn-lg btn-info">Elecciones</button></a></p>
+<p> 
+    <a href="/candidatos"><button type="button" class="btn boton-inicio btn-lg btn-warning">Candidatos</button></a></p>
+<p> 
+    <a href="/partidos"><button type="button" class="btn boton-inicio btn-lg btn-danger">Partidos</button></a></p>
+<p> 
+    <a href="/informacion"><button type="button" class="btn boton-inicio btn-lg btn-success">Info</button></a></p>
+</div>
+
 {% endblock contenedor %}

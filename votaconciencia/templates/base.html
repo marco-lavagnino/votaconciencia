@@ -7,8 +7,13 @@
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{% static "style.css"%}">
     <link rel="stylesheet" href="{% static "css/bootstrap.css"%}">
+    <link rel="stylesheet" href="{% static "css/estilos.css"%}">
+    <link rel="stylesheet" href="{% static "js/bootstrap.js"%}">
+    {% include "home/navbar.html" %}
 </head>
 <body>
-    <h1>VotaConciencia</h1>
+    {% block contenedor %}
+        todavia no hay nada
+    {% endblock contenedor %}
 </body>
 </html>

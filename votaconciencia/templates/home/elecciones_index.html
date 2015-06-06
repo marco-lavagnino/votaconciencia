@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block contenedor %}
+
+<h1>Elecciones</h1>
+{% for eleccion in elecciones %}
+<p> <a href="/eleccion/{{eleccion.id}}"> {{eleccion.nombre}} </a> </p>
+{% endfor %}
+
+{% endblock contenedor %}
