@@ -30,5 +30,28 @@ class Partido(models.Model):
         verbose_name_plural = "Partidos"
 
     def __str__(self):
-        pass
-    
+        return self.nombre
+
+class Propuesta(models.Model):
+    candidato = models.ForeignKey('Candidato')
+    descripcion = models.TextField()
+    cumplida = models.BooleanField()
+
+    class Meta:
+        verbose_name = "Propuesta"
+        verbose_name_plural = "Propuestas"
+
+    def __str__(self):
+        return "propuesta de " + self.candidato.nombre
+
+class Eleccion(models.Model):
+    nombre = models.CharField(max_length=40)
+    terminada = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name = "Eleccion"
+        verbose_name_plural = "Elecciones"
+
+    def __str__(self):
+        return self.nombre
+
