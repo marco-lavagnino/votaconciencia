@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block contenedor %}
+<div class="col-md-12">
+    <div class="col-md-4">
+        <div class="thumbnail img-responsive sin-borde">
+          <img src="{{candidato.foto.url}}"  alt="..." >
+          <div class="caption">
+            <h1>{{candidato.nombre}}</h1>
+        </div>
+    </div>
+    </div>
+    <div class="col-md-8">
+        <div class="jumbotron">
+          <h2>Biografia</h2>
+          <p>{{candidato.bio}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <h2>Propuestas:</h2>
+        
+    {%for p in propuestas%}
+    <div class="col-md-12 separador"> </div>
+    <div class="col-md-12 "></div>
+        <h3>{{p.descripcion}}</h3>
+    {%endfor%}
+</div>
+{% endblock contenedor %}
