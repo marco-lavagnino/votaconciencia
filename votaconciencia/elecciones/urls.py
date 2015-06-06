@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     url(r'candidatos', views.index_candidatos , name='candidatos'),
     url(r'elecciones', views.index_elecciones , name='elecciones'),
     url(r'eleccion/(?P<id>\d+)', views.eleccion_individual, name='eleccion_individual'),
+    url(r'informacion', views.informacion, name="info"),
     url(r'$^', views.index , name='inicio'),
 )
 

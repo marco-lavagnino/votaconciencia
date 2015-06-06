@@ -47,3 +47,6 @@ def index_partidos_candidatos(request,idp):
 def lista_partidos(request):
     partidos = Partido.objects.all()
     return render(request, 'home/listado_partidos.html',{"partidos":partidos})
+
+def informacion (request):
+    return render(request, 'home/info.html', {})
