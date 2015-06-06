@@ -24,15 +24,15 @@ def eleccion_individual(request, id):
         candidatos = Candidato.objects.filter(eleccion__id=id)
         tuplas.append((p, candidatos))
 
-def index_perfil(request, idc):
-    candidato = get_object_or_404(Candidato, pk=idc)
-    propuestas = Propuesta.objects.all().filter(candidato__id=idc)
-    ctx = {"candidato":candidato,"propuestas":propuestas}
-    return render(request, 'home/index_perfil.html',ctx)
-
     dictionary = {
         'partido_candidatos' : tuplas,
         'eleccion': Eleccion.objects.get(id=id)
     }
 
     return render(request, 'home/eleccion_individual.html', dictionary)
+
+def index_perfil(request, idc):
+    candidato = get_object_or_404(Candidato, pk=idc)
+    propuestas = Propuesta.objects.all().filter(candidato__id=idc)
+    ctx = {"candidato":candidato,"propuestas":propuestas}
+    return render(request, 'home/index_perfil.html',ctx)
