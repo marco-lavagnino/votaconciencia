@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block contenedor %}
+
+
+<div class="text-center">
+{%for c in candidatos%}
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail img-responsive sin-borde">
+          <a href="/perfil/{{c.id}}"><img src="{{c.foto.url}}" alt="..." class = "img-circle img-circle2"></a>
+          <div class="caption">
+            <a href="/perfil/{{c.id}}"><h3>{{c.nombre}}</h3></a>
+            <a href="/partido/{{c.partido.id}}"><p>{{c.partido.nombre}}</p></a>
+          </div>
+        </div>
+      </div>
+{%endfor%}
+{% endblock contenedor %}

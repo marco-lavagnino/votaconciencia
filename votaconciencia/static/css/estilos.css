@@ -2,7 +2,21 @@
     padding: 2em;
     width: 40em;
 }
+.sin-borde{
+    border: solid 0px transparent;
+}
+.jumbotron{
+    background-color: transparent;
+}
+
+.jumbotron p {
+    width: 70%;
 
 .titulo-partido {
     height: 4em;
+}
+
+.separador{
+    height: 10px;
+    border-bottom: solid 1px #ddd; 
 }
