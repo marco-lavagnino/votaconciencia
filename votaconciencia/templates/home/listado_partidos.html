@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block contenedor %}
+<div class="text-center">
+<h1>Partidos</h1>
+{% for p in partidos %}
+<p> 
+    <a href="/perfil_partidos/{{p.id}}"><button type="button" class="btn boton-inicio btn-lg btn-danger">{{p.nombre}}</button></a></p>
+{%endfor%}
+{% endblock contenedor %}

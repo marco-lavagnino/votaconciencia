@@ -36,3 +36,14 @@ def index_perfil(request, idc):
     propuestas = Propuesta.objects.all().filter(candidato__id=idc)
     ctx = {"candidato":candidato,"propuestas":propuestas}
     return render(request, 'home/index_perfil.html',ctx)
+
+def index_partidos_candidatos(request,idp):
+    candidatos = Candidato.objects.all().filter(partido__id=idp)
+    partido = get_object_or_404(Partido, pk=idp)
+    print "HOLA" +str(partido)
+    return render(request, 'home/index_partidos_candidatos.html',
+        {"candidatos":candidatos,"partido":partido})
+
+def lista_partidos(request):
+    partidos = Partido.objects.all()
+    return render(request, 'home/listado_partidos.html',{"partidos":partidos})
