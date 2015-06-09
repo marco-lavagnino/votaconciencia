@@ -13,10 +13,6 @@
     width: 70%;
 }
 
-.titulo-partido {
-    height: 4em;
-}
-
 .separador{
     height: 10px;
     border-bottom: solid 1px #ddd; 
@@ -32,10 +28,8 @@
 .candidato-mini .candidato-img-container img {
     height: 100%;
     width: auto;
-    /*position: absolute;*/
     margin-left: 50%;
     margin-top: 50%;
-    /*-webkit-transform:x translateY(-50%) translateX(-50%);*/
     -webkit-transform: translate(-50%, -50%);
     -moz-transform:    translate(-50%, -50%);
     -ms-transform:     translate(-50%, -50%);
@@ -52,3 +46,40 @@
     border-radius: 50%;
 }
 
+.line-separator{
+    height:1px;
+    background:#717171;
+    border-bottom:1px solid #313030;
+}
+
+.candidatos-de-partido {
+    display: inline-block;
+    margin: 1em 1em 1em 1em;
+    padding-right: 2em;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+.candidatos-de-partido h2 {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    color: white;
+    margin-top: 0.5em;
+    padding-left: 1em;
+    text-shadow: 0px 0px 1em black;
+}
+
+.candidatos-de-partido .pool {
+    background-color: white;
+    margin-left: 1em;
+    margin-right: -1em;
+    margin-bottom: 1em;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+}
+
+.candidatos-de-partido .candidato-img-container {
+    margin-left: -1em;
+}

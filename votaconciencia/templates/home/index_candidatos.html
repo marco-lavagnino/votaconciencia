@@ -3,8 +3,13 @@
 {% block contenedor %}
 
 
-<div class="text-center">
-{%for candidato in candidatos%}
-    {% include "home/candidato_individual.html" %}
-{%endfor%}
+<div class="text-center col-md-offset-2 col-md-8">
+{% for eleccion in elecciones %}
+  <h1>{{ eleccion.nombre }}</h1>
+  <div class="line-separator"></div>
+  {%for candidato in eleccion.candidato_set.all %}
+      {% include "home/candidato_individual.html" %}
+  {%endfor%}
+{% endfor %}
+</div>
 {% endblock contenedor %}

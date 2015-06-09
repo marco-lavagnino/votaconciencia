@@ -2,16 +2,16 @@
 {% load staticfiles %}
 
 {% block contenedor %}
-<div class="col-md-offset-3 col-md-6">
+<div class="text-center col-md-offset-2 col-md-8">
 {% for partido, candidatos in partido_candidatos %}
-    {% if candidatos %}
-    <div style="background-color: #{{ partido.color }};" class="titulo-partido" >
-    <h1>{{ partido.nombre | capfirst }}</h1>
-    </div>
+    <div class="candidatos-de-partido text-center" style="background-color: #{{ partido.color }};">
+    <h2>{{ partido.abreviacion }}</h2>
+    <div class="pool">
     {% for candidato in candidatos %}
         {% include "home/candidato_individual.html" %}
     {% endfor %}
-    {% endif %}
+    </div>
+    </div>
 {% endfor %}
 </div>
 

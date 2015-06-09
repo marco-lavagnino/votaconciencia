@@ -13,8 +13,8 @@ def index_elecciones(request):
 
 
 def index_candidatos(request):
-    candidatos = Candidato.objects.all()
-    return render(request, 'home/index_candidatos.html',{"candidatos":candidatos})
+    elecciones = Eleccion.objects.all()
+    return render(request, 'home/index_candidatos.html',{"elecciones":elecciones})
 
 def eleccion_individual(request, id):
     tuplas = []
@@ -22,7 +22,8 @@ def eleccion_individual(request, id):
     for partido in Partido.objects.all():
         p = partido
         candidatos = Candidato.objects.filter(eleccion__id=id,partido__id=partido.id)
-        tuplas.append((p, candidatos))
+        if candidatos:
+            tuplas.append((p, candidatos))
 
     dictionary = {
         'partido_candidatos' : tuplas,
