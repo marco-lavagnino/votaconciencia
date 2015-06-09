@@ -40,7 +40,6 @@ def index_perfil(request, idc):
 def index_partidos_candidatos(request,idp):
     candidatos = Candidato.objects.all().filter(partido__id=idp)
     partido = get_object_or_404(Partido, pk=idp)
-    print "HOLA" +str(partido)
     return render(request, 'home/index_partidos_candidatos.html',
         {"candidatos":candidatos,"partido":partido})
 

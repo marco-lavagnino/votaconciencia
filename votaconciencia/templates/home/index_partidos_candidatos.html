@@ -4,16 +4,7 @@
 
 <div class="text-center">
 <h1>{{partido.nombre}}</h1>
-{%for c in candidatos%}
-    <div class="row">
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail img-responsive sin-borde">
-          <a href="/perfil/{{c.id}}"><img src="{{c.foto.url}}" alt="..." class = "img-circle img-circle2"></a>
-          <div class="caption">
-            <a href="/perfil/{{c.id}}"><h3>{{c.nombre}}</h3></a>
-            <a href="/partido/{{c.partido.id}}"><p>{{c.partido.nombre}}</p></a>
-          </div>
-        </div>
-      </div>
+{%for candidato in candidatos%}
+    {% include "home/candidato_individual.html" %}
 {%endfor%}
 {% endblock contenedor %}

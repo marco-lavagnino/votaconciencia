@@ -1,7 +1,10 @@
-{% load staticfiles %}
-
 
 <div class="candidato-mini">
-<img src="{{candidato.foto.url}}" class="img-circle" height="200" width="200">
-<h1>{{candidato.nombre}} <small> {{ candidato.partido.nombre}} </small></h1>
+<div class="candidato-img-container">
+<a href="/perfil/{{candidato.id}}"><img src="{{candidato.foto.url}}"></a>
+</div>
+<div class="caption">
+    <a href="/perfil/{{candidato.id}}"><h3>{{candidato.nombre}}</h3></a>
+    <a href="/partido/{{candidato.partido.id}}"><p>{{candidato.partido.abreviacion}}</p></a>
+</div>
 </div>

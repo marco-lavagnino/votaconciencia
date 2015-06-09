@@ -1,5 +1,5 @@
 .boton-inicio {
-    padding: 2em;
+    padding: 40em;
     width: 40em;
 }
 .sin-borde{
@@ -11,6 +11,7 @@
 
 .jumbotron p {
     width: 70%;
+}
 
 .titulo-partido {
     height: 4em;
@@ -20,3 +21,34 @@
     height: 10px;
     border-bottom: solid 1px #ddd; 
 }
+
+.candidato-mini {
+    text-align: center;
+    width: 15em;
+    display: inline-block;
+    padding: 1em 1em 1em 1em;
+}
+
+.candidato-mini .candidato-img-container img {
+    height: 100%;
+    width: auto;
+    /*position: absolute;*/
+    margin-left: 50%;
+    margin-top: 50%;
+    /*-webkit-transform:x translateY(-50%) translateX(-50%);*/
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform:    translate(-50%, -50%);
+    -ms-transform:     translate(-50%, -50%);
+    -o-transform:      translate(-50%, -50%);
+    transform:         translate(-50%, -50%);
+}
+
+.candidato-mini .candidato-img-container {
+    overflow: hidden;
+    width: 15em;
+    height: 15em;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
