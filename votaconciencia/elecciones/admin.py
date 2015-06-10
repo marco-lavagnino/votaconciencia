@@ -12,11 +12,17 @@ class SumCandidato(SummernoteModelAdmin):
 class SumPartido(SummernoteModelAdmin):
     pass
 
+# admin.site.register(Partido)
+
 @admin.register(Eleccion)
 class SumEleccion(SummernoteModelAdmin):
     pass
 
 @admin.register(Propuesta)
 class SumPropuesta(SummernoteModelAdmin):
+    pass
+
+@admin.register(FechaImportante)
+class SumFecha(SummernoteModelAdmin):
     pass
 

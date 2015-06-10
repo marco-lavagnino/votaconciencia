@@ -2,11 +2,9 @@
 {% load staticfiles %}
 
 {% block contenedor %}
-<div class="text-center col-md-offset-2 col-md-8">
 <h1>Partidos</h1>
 <div class="line-separator"></div>
 {% for partido in partidos %}
     {% include "home/partido_individual.html" %}
 {%endfor%}
-</div>
 {% endblock contenedor %}

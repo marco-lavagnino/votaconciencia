@@ -5,9 +5,9 @@
 
 <h1>Elecciones</h1>
 {% for eleccion in elecciones %}
-<div class="text-center">
-    <p> <a href="/eleccion/{{eleccion.id}}"><button type="button" class="btn boton-inicio btn-lg btn-info">{{eleccion.nombre}}</button></a></p>
-</div>
+<p>
+    <a href="/eleccion/{{eleccion.id}}"><button type="button" class="btn boton-inicio btn-lg btn-info">{{eleccion.nombre}}</button></a>
+</p>
 {% endfor %}
 
 {% endblock contenedor %}

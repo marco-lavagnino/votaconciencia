@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from colorful.fields import RGBColorField
 
 class Candidato(models.Model):
     nombre = models.CharField(max_length=100)
@@ -24,7 +25,8 @@ class Partido(models.Model):
     nombre = models.CharField(max_length=100)
     abreviacion = models.CharField(max_length=30)
     logo = models.ImageField(null=True, blank=True)
-    color = models.CharField(max_length=6)
+    color = RGBColorField()
+    informacion = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = "Partido"
@@ -47,7 +49,8 @@ class Propuesta(models.Model):
 
 class Eleccion(models.Model):
     nombre = models.CharField(max_length=40)
-    terminada = models.BooleanField(default=False)
+    fecha = models.DateField()
+    informacion = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = "Eleccion"

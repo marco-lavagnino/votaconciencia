@@ -1,9 +1,7 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+
 {% block contenedor %}
 
-
-<div class="text-center col-md-offset-2 col-md-8">
 {% for eleccion in elecciones %}
   <h1>{{ eleccion.nombre }}</h1>
   <div class="line-separator"></div>
@@ -11,5 +9,5 @@
       {% include "home/candidato_individual.html" %}
   {%endfor%}
 {% endfor %}
-</div>
+
 {% endblock contenedor %}

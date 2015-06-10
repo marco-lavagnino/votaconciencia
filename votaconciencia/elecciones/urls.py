@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     url(r'eleccion/(?P<id>\d+)', views.perfil_eleccion, name='eleccion_individual'),
     url(r'elecciones', views.index_elecciones , name='elecciones'),
     # otras urls
-    url(r'informacion', views.informacion, name="info"),
+    url(r'informacion^', views.informacion, name="info"),
     url(r'$^', views.index , name='inicio'),
 )
 

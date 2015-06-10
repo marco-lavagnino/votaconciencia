@@ -2,9 +2,9 @@ html, body {
     height: 100%;
 }
 
-body {
+/*body {
     background-image: url("/static/fotos/lightblue.jpg");
-}
+}*/
 
 .boton-inicio {
     padding: 40em;
@@ -47,6 +47,7 @@ body {
 
 .candidato-mini .candidato-img-container {
     overflow: hidden;
+    margin-left: -1em;
     width: 15em;
     height: 15em;
     -moz-border-radius: 50%;
@@ -90,4 +91,26 @@ body {
 
 .candidatos-de-partido .candidato-img-container {
     margin-left: -1em;
+}
+
+.contenido-principal {
+    background-color: white;
+    width: 100%;
+    -moz-border-top-left-radius: 1em;
+    -webkit-border-top-left-radius: 1em;
+    border-top-left-radius: 1em;
+    -moz-border-top-right-radius: 1em;
+    -webkit-border-top-right-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+.contenido-principal-background {
+    background-color: white;
+    height: 100%;
+    -moz-border-top-left-radius: 1em;
+    -webkit-border-top-left-radius: 1em;
+    border-top-left-radius: 1em;
+    -moz-border-top-right-radius: 1em;
+    -webkit-border-top-right-radius: 1em;
+    border-top-right-radius: 1em;
 }

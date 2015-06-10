@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'elecciones',
     'django_summernote',
+    'colorful',
 )
 
 MIDDLEWARE_CLASSES = (
