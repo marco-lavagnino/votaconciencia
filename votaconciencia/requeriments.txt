@@ -1,0 +1,5 @@
+Django==1.7
+django-colorful==1.0.1
+django-summernote==0.6.8
+Pillow==2.8.2
+wheel==0.24.0
