@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- encoding: utf-8 -*-
 
 from django.db import models
 from colorful.fields import RGBColorField
@@ -18,7 +18,7 @@ class Candidato(models.Model):
         verbose_name = "Candidato"
         verbose_name_plural = "Candidatos"
 
-    def __str__(self):
+    def __unicode__(self):
         return self.nombre
 
 class Partido(models.Model):
@@ -32,7 +32,7 @@ class Partido(models.Model):
         verbose_name = "Partido"
         verbose_name_plural = "Partidos"
 
-    def __str__(self):
+    def __unicode__(self):
         return self.nombre
 
 class Propuesta(models.Model):
@@ -44,7 +44,7 @@ class Propuesta(models.Model):
         verbose_name = "Propuesta"
         verbose_name_plural = "Propuestas"
 
-    def __str__(self):
+    def __unicode__(self):
         return "propuesta de " + self.candidato.nombre
 
 class Eleccion(models.Model):
@@ -56,7 +56,7 @@ class Eleccion(models.Model):
         verbose_name = "Eleccion"
         verbose_name_plural = "Elecciones"
 
-    def __str__(self):
+    def __unicode__(self):
         return self.nombre
 
 class FechaImportante(models.Model):
@@ -68,5 +68,5 @@ class FechaImportante(models.Model):
         verbose_name = "fecha importante"
         verbose_name_plural = "fechas importantes"
 
-    def __str__(self):
+    def __unicode__(self):
         return self.titulo
