@@ -4,49 +4,49 @@ from django.template import RequestContext
 from models import *
 
 def index (request):
-    return render_to_response('home/index.html',
-    context_instance=RequestContext(request)
-    )
+    return render(request, 'home/index.html', {})
 
+
+# VIEWS DE ELECCIONES
 def index_elecciones(request):
-    return render(request, 'home/elecciones_index.html', {'elecciones': Eleccion.objects.all()})
+    return render(request, 'eleccion/index.html', {'elecciones': Eleccion.objects.all()})
 
-
-def index_candidatos(request):
-    elecciones = Eleccion.objects.all()
-    return render(request, 'home/index_candidatos.html',{"elecciones":elecciones})
-
-def eleccion_individual(request, id):
+def perfil_eleccion(request, id):
     tuplas = []
-
     for partido in Partido.objects.all():
         p = partido
         candidatos = Candidato.objects.filter(eleccion__id=id,partido__id=partido.id)
         if candidatos:
             tuplas.append((p, candidatos))
-
     dictionary = {
         'partido_candidatos' : tuplas,
         'eleccion': Eleccion.objects.get(id=id)
     }
+    return render(request, 'eleccion/perfil.html', dictionary)
 
-    return render(request, 'home/eleccion_individual.html', dictionary)
 
-def index_perfil(request, idc):
+
+# VIEWS DE CANDIDATOS
+def index_candidatos(request):
+    elecciones = Eleccion.objects.all()
+    return render(request, 'candidato/index.html', {"elecciones": elecciones})
+
+def perfil_candidato(request, idc):
     candidato = get_object_or_404(Candidato, pk=idc)
-    propuestas = Propuesta.objects.all().filter(candidato__id=idc)
-    ctx = {"candidato":candidato,"propuestas":propuestas}
-    return render(request, 'home/index_perfil.html',ctx)
+    return render(request, 'candidato/perfil.html', {"candidato":candidato})
 
-def index_partidos_candidatos(request,idp):
-    candidatos = Candidato.objects.all().filter(partido__id=idp)
-    partido = get_object_or_404(Partido, pk=idp)
-    return render(request, 'home/index_partidos_candidatos.html',
-        {"candidatos":candidatos,"partido":partido})
 
-def lista_partidos(request):
+
+# VIEWS DE PARTIDOS
+def index_partidos(request):
     partidos = Partido.objects.all()
-    return render(request, 'home/listado_partidos.html',{"partidos":partidos})
+    return render(request, 'partido/index.html',{"partidos":partidos})
+
+def perfil_partido(request,idp):
+    partido = get_object_or_404(Partido, pk=idp)
+    return render(request, 'partido/perfil.html', {"partido":partido})
+
+
 
 def informacion (request):
     return render(request, 'home/info.html', {})

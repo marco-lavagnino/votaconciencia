@@ -1,7 +1,6 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 from django.db import models
-
 
 class Candidato(models.Model):
     nombre = models.CharField(max_length=100)
@@ -11,8 +10,8 @@ class Candidato(models.Model):
     facebook = models.URLField(null=True)
     pagina_personal = models.URLField(null=True)
     boleta = models.ImageField(null=True, blank=True)
-    partido = models.ForeignKey('Partido')
-    eleccion = models.ForeignKey('Eleccion')
+    partido = models.ForeignKey('Partido', related_name='candidatos')
+    eleccion = models.ForeignKey('Eleccion', related_name='candidatos')
 
     class Meta:
         verbose_name = "Candidato"
@@ -35,7 +34,7 @@ class Partido(models.Model):
         return self.nombre
 
 class Propuesta(models.Model):
-    candidato = models.ForeignKey('Candidato')
+    candidato = models.ForeignKey('Candidato', related_name='propuestas')
     descripcion = models.TextField()
     cumplida = models.BooleanField(default = False)
 
@@ -57,3 +56,14 @@ class Eleccion(models.Model):
     def __str__(self):
         return self.nombre
 
+class FechaImportante(models.Model):
+    fecha = models.DateField()
+    titulo = models.CharField(max_length=50)
+    descripcion = models.TextField()
+
+    class Meta:
+        verbose_name = "fecha importante"
+        verbose_name_plural = "fechas importantes"
+
+    def __str__(self):
+        return self.titulo

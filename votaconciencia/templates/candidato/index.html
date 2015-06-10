@@ -7,7 +7,7 @@
 {% for eleccion in elecciones %}
   <h1>{{ eleccion.nombre }}</h1>
   <div class="line-separator"></div>
-  {%for candidato in eleccion.candidato_set.all %}
+  {%for candidato in eleccion.candidatos.all %}
       {% include "home/candidato_individual.html" %}
   {%endfor%}
 {% endfor %}

@@ -4,7 +4,7 @@
 
 <div class="text-center">
 <h1>{{partido.nombre}}</h1>
-{%for candidato in candidatos%}
+{%for candidato in partido.candidatos.all %}
     {% include "home/candidato_individual.html" %}
 {%endfor%}
 {% endblock contenedor %}
