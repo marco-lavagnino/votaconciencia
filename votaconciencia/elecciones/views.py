@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 from django.shortcuts import render, render_to_response, get_object_or_404
-from django.http import HttpResponse
+from django.http import JsonResponse, HttpResponse
 from django.template import RequestContext
 from models import *
 
@@ -51,3 +51,19 @@ def perfil_partido(request,idp):
 
 def calendario (request):
     return render(request, 'home/calendario.html', {})
+
+def calendario_eventos (request):
+    result = []
+    start = request.GET['start']
+    end = request.GET['end']
+    for fecha in FechaImportante.objects.filter(fecha__range=[start, end]):
+        result.append({
+            'title' : fecha.titulo,
+            'start' : fecha.fecha
+            })
+    for eleccion in Eleccion.objects.filter(fecha__range=[start, end]):
+        result.append({
+            'title' : eleccion.nombre,
+            'start' : eleccion.fecha
+            })
+    return JsonResponse(result, safe=0)

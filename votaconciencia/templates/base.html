@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{% static "css/estilos.css"%}"></link>
     <link rel="stylesheet" href="{% static "css/bootstrap.css"%}"></link>
     <link rel="stylesheet" href="{% static "js/bootstrap.js"%}"></link>
+    {% block extra_headers %}
+    {% endblock extra_headers %}
 </head>
 <body>
     {% include "home/navbar.html" %}

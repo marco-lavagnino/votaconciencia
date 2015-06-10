@@ -1,3 +1,16 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
-{# para completar #}
+{% block extra_headers %}
+<link rel='stylesheet' href="{% static 'calendar/fullcalendar.min.css' %}" />
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/moment.min.js' %}"></script>
+<script src="{% static 'calendar/fullcalendar.min.js' %}"></script>
+<script src="{% static 'calendar/calendar_manager.js' %}"></script>
+<script src="{% static 'calendar/lang/es.js' %}"></script>
+{% endblock extra_headers %}
+
+{% block contenedor %}
+<div id='calendar'></div>
+{% endblock contenedor %}
+

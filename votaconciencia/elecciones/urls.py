@@ -13,7 +13,8 @@ urlpatterns = patterns('',
     url(r'eleccion/(?P<id>\d+)', views.perfil_eleccion, name='eleccion_individual'),
     url(r'elecciones', views.index_elecciones , name='elecciones'),
     # otras urls
-    url(r'calendario', views.calendario, name="info"),
+    url(r'calendario/ajax', views.calendario_eventos, name="calendario_eventos"),
+    url(r'calendario', views.calendario, name="calendario"),
     url(r'$^', views.index , name='inicio'),
 )
 
