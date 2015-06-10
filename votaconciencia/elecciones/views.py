@@ -48,5 +48,5 @@ def perfil_partido(request,idp):
 
 
 
-def informacion (request):
-    return render(request, 'home/info.html', {})
+def calendario (request):
+    return render(request, 'home/calendario.html', {})

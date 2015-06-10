@@ -3,7 +3,7 @@
 
 {% block contenedor %}
 {% for partido, candidatos in partido_candidatos %}
-    <div class="candidatos-de-partido text-center" style="background-color: #{{ partido.color }};">
+    <div class="candidatos-de-partido text-center" style="background-color: {{ partido.color }};">
     <h2>{{ partido.abreviacion }}</h2>
     <div class="pool">
     {% for candidato in candidatos %}
