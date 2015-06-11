@@ -58,11 +58,14 @@ def calendario_eventos (request):
     end = request.GET['end']
     for fecha in FechaImportante.objects.filter(fecha__range=[start, end]):
         result.append({
+            'allDay': True,
             'title' : fecha.titulo,
             'start' : fecha.fecha
             })
     for eleccion in Eleccion.objects.filter(fecha__range=[start, end]):
         result.append({
+            'allDay': True,
+            # 'url'   : eleccion.
             'title' : eleccion.nombre,
             'start' : eleccion.fecha
             })

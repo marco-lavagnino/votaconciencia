@@ -8,17 +8,19 @@
     <link rel="stylesheet" href="{% static "css/estilos.css"%}"></link>
     <link rel="stylesheet" href="{% static "css/bootstrap.css"%}"></link>
     <link rel="stylesheet" href="{% static "js/bootstrap.js"%}"></link>
+    <link rel="stylesheet" href="{% static "css/my_navbar.css"%}"></link>
     {% block extra_headers %}
     {% endblock extra_headers %}
 </head>
 <body>
     {% include "home/navbar.html" %}
-    <div class="contenido-principal-background col-md-offset-2 col-md-8">
-    <div class="contenido-principal text-center">
+    <div class="row text-center">
+    <div class="col-md-offset-2 col-md-8">
     {% block contenedor %}
         todavia no hay nada
     {% endblock contenedor %}
     </div>
     </div>
+    {% include "home/footer.html" %}
 </body>
 </html>

@@ -1,10 +1,12 @@
-html, body {
-    height: 100%;
+
+.navbar {
+    font-family: 'Lato', sans-serif;
 }
 
-/*body {
-    background-image: url("/static/fotos/lightblue.jpg");
-}*/
+.navbar-brand img {
+    width: 100%;
+    margin-top: -5px;
+}
 
 .boton-inicio {
     padding: 40em;
@@ -113,4 +115,20 @@ html, body {
     -moz-border-top-right-radius: 1em;
     -webkit-border-top-right-radius: 1em;
     border-top-right-radius: 1em;
+}
+
+.footer {
+    padding-top: 5px;
+    background-color: #1f5990;
+    color: #1f5990;
+    text-align: center;
+}
+
+/*.footer div {
+    background-color:  #1f5990;
+}*/
+.footer img {
+    width: 100%;
+    height: auto;
+    color: white;
 }
