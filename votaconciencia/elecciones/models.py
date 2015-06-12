@@ -62,7 +62,7 @@ class Eleccion(models.Model):
 class FechaImportante(models.Model):
     fecha = models.DateField()
     titulo = models.CharField(max_length=50)
-    descripcion = models.TextField()
+    descripcion = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = "fecha importante"
