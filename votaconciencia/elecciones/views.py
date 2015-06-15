@@ -1,14 +1,10 @@
 # -*- encoding: utf-8 -*-
-from django.shortcuts import render, render_to_response, get_object_or_404
-from django.http import JsonResponse, HttpResponse
-from django.template import RequestContext
+from django.shortcuts import render, get_object_or_404
 from models import *
+from partidos.models import Partido
+from candidatos.models import Candidato
 
-def index (request):
-    return render(request, 'home/index.html', {})
 
-
-# VIEWS DE ELECCIONES
 def index_elecciones(request):
     return render(request, 'eleccion/index.html', {'elecciones': Eleccion.objects.all()})
 
@@ -24,49 +20,3 @@ def perfil_eleccion(request, id):
         'eleccion': Eleccion.objects.get(id=id)
     }
     return render(request, 'eleccion/perfil.html', dictionary)
-
-
-
-# VIEWS DE CANDIDATOS
-def index_candidatos(request):
-    elecciones = Eleccion.objects.all()
-    return render(request, 'candidato/index.html', {"elecciones": elecciones})
-
-def perfil_candidato(request, idc):
-    candidato = get_object_or_404(Candidato, pk=idc)
-    return render(request, 'candidato/perfil.html', {"candidato":candidato})
-
-
-
-# VIEWS DE PARTIDOS
-def index_partidos(request):
-    partidos = Partido.objects.all()
-    return render(request, 'partido/index.html',{"partidos":partidos})
-
-def perfil_partido(request,idp):
-    partido = get_object_or_404(Partido, pk=idp)
-    return render(request, 'partido/perfil.html', {"partido":partido})
-
-
-
-def calendario (request):
-    return render(request, 'home/calendario.html', {})
-
-def calendario_eventos (request):
-    result = []
-    start = request.GET['start']
-    end = request.GET['end']
-    for fecha in FechaImportante.objects.filter(fecha__range=[start, end]):
-        result.append({
-            'allDay': True,
-            'title' : fecha.titulo,
-            'start' : fecha.fecha
-            })
-    for eleccion in Eleccion.objects.filter(fecha__range=[start, end]):
-        result.append({
-            'allDay': True,
-            # 'url'   : eleccion.
-            'title' : eleccion.nombre,
-            'start' : eleccion.fecha
-            })
-    return JsonResponse(result, safe=0)

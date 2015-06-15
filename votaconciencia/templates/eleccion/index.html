@@ -6,7 +6,7 @@
 <h1>Elecciones</h1>
 {% for eleccion in elecciones %}
 <p>
-    <a href="/eleccion/{{eleccion.id}}"><button type="button" class="btn boton-inicio btn-lg btn-info">{{eleccion.nombre}}</button></a>
+    <a href="{{eleccion.get_absolute_url}}"><button type="button" class="btn boton-inicio btn-lg btn-info">{{eleccion.nombre}}</button></a>
 </p>
 {% endfor %}
 <div style="height: 17em;"></div>

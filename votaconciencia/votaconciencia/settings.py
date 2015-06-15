@@ -39,6 +39,10 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'elecciones',
     'entrevistas',
+    'calendario',
+    'candidatos',
+    'general',
+    'partidos',
     'django_summernote',
     'colorful',
 )

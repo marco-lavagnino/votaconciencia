@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 from django.db import models
-from elecciones.models import Candidato
+from candidatos.models import Candidato
 
 class Personalidad(models.Model):
     foto = models.ImageField()
@@ -27,7 +27,7 @@ class Entrevista(models.Model):
         return "entrevista a " + self.entrevistado.nombre
 
 class EntrevistaCandidato(Entrevista):
-    entrevistado = models.ForeignKey('elecciones.Candidato')
+    entrevistado = models.ForeignKey('candidatos.Candidato')
 
     class Meta:
         verbose_name = "Entrevista a candidato"
