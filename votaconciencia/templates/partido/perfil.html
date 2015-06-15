@@ -4,7 +4,18 @@
 
 <div class="text-center">
 <h1>{{partido.nombre}}</h1>
+
+{% if partido.informacion %}
+<h2>Un poco de historia...</h2>
+<div class="separador"></div>
+{{ partido.informacion | safe }}
+{% endif %}
+
+{# TODO añadir alianzas #}
+
+<h2>Candidatos de este partido</h2>
+<div class="separador"></div>
 {%for candidato in partido.candidatos.all %}
-    {% include "home/candidato_individual.html" %}
+    {% include "atomos/candidato.html" %}
 {%endfor%}
 {% endblock contenedor %}

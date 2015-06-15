@@ -22,6 +22,8 @@
     <ul style="text-align: left;">
     {%for p in candidato.propuestas.all %}
         <li><p>{{p.descripcion|safe}}</p></li>
+    {%empty%}
+      <p class="text-danger" style="text-align: center;">El candidato no ha oficializado sus propuestas por el momento.</p>
     {%endfor%}
     </ul>
 </div>

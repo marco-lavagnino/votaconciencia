@@ -5,5 +5,5 @@ def index (request):
     return render(request, 'home/index.html', {})
 
 def quienes_somos (request):
-    descripcion = QuienesSomos.objects.last()
-    return render(request, 'home/quienes_somos.html', {'descripcion': descripcion})
+    contenido = QuienesSomos.objects.last().contenido
+    return render(request, 'home/quienes_somos.html', {'contenido': contenido})

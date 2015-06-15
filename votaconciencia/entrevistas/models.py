@@ -26,6 +26,10 @@ class Entrevista(models.Model):
     def __unicode__(self):
         return "entrevista a " + self.entrevistado.nombre
 
+    def get_absolute_url(self):
+        return reverse('entrevistas.views.entrevista_individual', args=[str(self.id)])
+
+
 class EntrevistaCandidato(Entrevista):
     entrevistado = models.ForeignKey('candidatos.Candidato')
 

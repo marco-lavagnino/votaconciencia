@@ -1,0 +1,10 @@
+
+<div class="candidato-mini">
+<div class="candidato-img-container">
+<a href="{{candidato.get_absolute_url}}"><img src="{{candidato.foto.url}}"></a>
+</div>
+<div class="caption">
+    <a href="{{candidato.get_absolute_url}}"><h3>{{candidato.nombre}}</h3></a>
+    <a href="{{candidato.partido.get_absolute_url}}"><p>{{candidato.partido.abreviacion}}</p></a>
+</div>
+</div>

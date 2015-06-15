@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block contenedor %}
+
+<h1>Encuestas</h1>
+<div class="line-separator"></div>
+{% for entrevista in entrevistas %}
+{% include "atomos/entrevista.html" %}
+{% endfor %}
+<div style="height: 17em;"></div>
+
+{% endblock contenedor %}
