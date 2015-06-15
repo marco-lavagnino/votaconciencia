@@ -3,18 +3,20 @@
 
 {% block contenedor %}
 <div class="col-md-12">
-    <div class="col-md-4">
-        <div class="thumbnail img-responsive sin-borde">
-          <img src="{{candidato.foto.url}}"  alt="..." >
-          <div class="caption">
-            <h1>{{candidato.nombre}}</h1>
-        </div>
+    <div class="thumbnail img-responsive sin-borde">
+      <img src="{{candidato.foto.url}}" >
+      <div class="caption">
+        <h1>{{candidato.nombre}}</h1>
+      </div>
     </div>
-    </div>
-    <div class="col-md-8">
-          <h2>Biografia</h2>
-          <p>{{candidato.bio|safe}}</p>
-    </div>
+</div>
+<div class="col-md-12">
+      <h2>Biografia</h2>
+      <p>{{candidato.bio|safe}}</p>
+      <h2>{{candidato.nombre}} en Twitter</h2>
+      {% with candidato.cuenta_tw as handle %}
+          {% include "home/twitter.html" %}
+      {% endwith %}
 </div>
 
 <div class="col-md-12">

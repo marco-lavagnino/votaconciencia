@@ -17,4 +17,4 @@ class Eleccion(models.Model):
 
 
     def get_absolute_url(self):
-        return reverse('elecciones.views.perfil_eleccion', args=[str(self.id)])
+        return reverse('elecciones.views.eleccion_intermedio', args=[str(self.id)])

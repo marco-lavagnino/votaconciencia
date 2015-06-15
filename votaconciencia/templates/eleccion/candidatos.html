@@ -2,7 +2,11 @@
 {% load staticfiles %}
 
 {% block contenedor %}
-{% for partido, candidatos in partido_candidatos %}
+
+<h1>Candidatos de las elecciones {{ eleccion.nombre }}</h1>
+<div class="line-separator"></div>
+
+{% for partido, candidatos in candidatos %}
     <div class="candidatos-de-partido text-center" style="background-color: {{ partido.color }};">
     <h2>{{ partido.abreviacion }}</h2>
     <div class="pool">

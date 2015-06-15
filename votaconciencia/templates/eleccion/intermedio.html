@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block contenedor %}
+
+<h1>Elecciones {{ eleccion.nombre }}</h1>
+<div class="line-separator"></div>
+
+<p> 
+    <a href="{% url 'eleccion_informacion' eleccion.id %}"><button type="button" class="btn btn-lg boton-inicio btn-info">Cosas que deberías saber</button></a>
+</p>
+<p> 
+    <a href="{% url 'eleccion_candidatos' eleccion.id %}"><button type="button" class="btn btn-lg boton-inicio btn-info">Candidatos</button></a>
+</p>
+
+<div style="height: 20em;"></div>
+
+
+{% endblock contenedor %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block contenedor %}
+
+<h1>Info sobre las elecciones {{ eleccion.nombre }}</h1>
+<div class="line-separator"></div>
+
+{% if eleccion.informacion %}
+{{ eleccion.informacion | safe }}
+{% else %}
+<div style="height: 30em;"></div>
+{% endif %}
+
+{% endblock contenedor %}

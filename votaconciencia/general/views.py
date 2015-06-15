@@ -5,5 +5,8 @@ def index (request):
     return render(request, 'home/index.html', {})
 
 def quienes_somos (request):
-    contenido = QuienesSomos.objects.last().contenido
+    try:
+        contenido = QuienesSomos.objects.last().contenido
+    except AttributeError:
+        contenido = ""
     return render(request, 'home/quienes_somos.html', {'contenido': contenido})
