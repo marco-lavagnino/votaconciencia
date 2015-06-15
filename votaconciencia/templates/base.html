@@ -7,10 +7,11 @@
     <link href='http://fonts.googleapis.com/css?family=Lato|Ubuntu+Condensed' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{% static "css/estilos.css"%}"></link>
     <link rel="stylesheet" href="{% static "css/bootstrap.css"%}"></link>
-    <link rel="stylesheet" href="{% static "js/bootstrap.js"%}"></link>
+    <script src="{% static "js/bootstrap.js"%}"></script>
     <link rel="stylesheet" href="{% static "css/my_navbar.css"%}"></link>
     {% block extra_headers %}
     {% endblock extra_headers %}
+    {% include "home/analytics.html" %}
 </head>
 <body>
     {% include "home/facebook.html" %}
