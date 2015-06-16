@@ -2,11 +2,12 @@
 
 from django.db import models
 from candidatos.models import Candidato
+from django.core.urlresolvers import reverse
 
 class Personalidad(models.Model):
     foto = models.ImageField()
     nombre = models.CharField(max_length=50)
-    titulo = models.CharField(max_length=250)
+    bio = models.TextField()
 
     class Meta:
         verbose_name = "Personalidad"
@@ -39,6 +40,7 @@ class EntrevistaCandidato(Entrevista):
 
     def __unicode__(self):
         return "entrevista a " + self.entrevistado.nombre
+
 
 class EntrevistaPersonalidad(Entrevista):
     entrevistado = models.ForeignKey('Personalidad')
