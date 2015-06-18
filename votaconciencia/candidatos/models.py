@@ -13,6 +13,7 @@ class Candidato(models.Model):
     partido = models.ForeignKey('partidos.Partido', related_name='candidatos')
     alianza = models.ForeignKey('partidos.Alianza', related_name='candidatos', null=True, blank=True)
     eleccion = models.ForeignKey('elecciones.Eleccion', related_name='candidatos')
+    legislador = models.BooleanField(default=False, verbose_name='es candidato a legislador?')
 
     class Meta:
         verbose_name = "Candidato"
