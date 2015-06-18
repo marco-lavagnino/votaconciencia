@@ -1,1 +1,16 @@
-sin implementar.
+<div style="text-align: left; display: table;">
+<div class="">
+
+<div class="entr-img-container">
+<a href="{{entrevista.get_absolute_url}}"><img src="{{entrevista.entrevistado.foto.url}}"></a>
+</div>
+
+</div>
+<div class="entr-descripcion">
+
+<h2>Entrevista a {{entrevista.entrevistado.nombre}}</h2>
+
+<p>{{entrevista.entrevistado.bio|safe}}</p>
+<a href="{{entrevista.get_absolute_url}}">Leer entrevista</a>
+</div>
+</div>

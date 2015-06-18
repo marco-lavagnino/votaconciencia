@@ -3,11 +3,13 @@
 
 {% block contenedor %}
 
-<h1>Encuestas</h1>
+<h1>Entrevistas</h1>
 <div class="line-separator"></div>
 {% for entrevista in entrevistas %}
 {% include "atomos/entrevista.html" %}
-{% endfor %}
+{% empty %}
+No hay entrevistas cargadas
 <div style="height: 17em;"></div>
+{% endfor %}
 
 {% endblock contenedor %}

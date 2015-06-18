@@ -1,3 +1,10 @@
+/* general */
+.line-separator{
+    height:1px;
+    background:#717171;
+    border-bottom:1px solid #313030;
+    margin-bottom: 2em;
+}
 
 .navbar {
     font-family: 'Lato', sans-serif;
@@ -28,14 +35,17 @@
     border-bottom: solid 1px #ddd; 
 }
 
-.candidato-mini {
+
+/* atomos */
+
+.atomo {
     text-align: center;
     width: 15em;
     display: inline-block;
     padding: 1em 1em 1em 1em;
 }
 
-.candidato-mini .candidato-img-container img {
+.atm-img-container img {
     height: 100%;
     width: auto;
     margin-left: 50%;
@@ -47,7 +57,7 @@
     transform:         translate(-50%, -50%);
 }
 
-.candidato-mini .candidato-img-container {
+.atm-img-container {
     overflow: hidden;
     margin-left: -1em;
     width: 15em;
@@ -57,12 +67,41 @@
     border-radius: 50%;
 }
 
-.line-separator{
-    height:1px;
-    background:#717171;
-    border-bottom:1px solid #313030;
-    margin-bottom: 2em;
+/* atomos de entrevista */
+
+.entr-img-container img {
+    height: 100%;
+    width: auto;
+    margin-left: 50%;
+    margin-top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform:    translate(-50%, -50%);
+    -ms-transform:     translate(-50%, -50%);
+    -o-transform:      translate(-50%, -50%);
+    transform:         translate(-50%, -50%);
 }
+
+.entr-img-container {
+    overflow: hidden;
+    margin-left: -1em;
+    width: 15em;
+    height: 15em;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    display: inline;
+    float: left;
+}
+
+.entr-descripcion {
+    text-align: left;
+    display: inline;
+    padding-left: 4em;
+    padding-top: 0px;
+    height: 100%;
+}
+
+/* para que se vean como fixture */
 
 .candidatos-de-partido {
     display: inline-block;
@@ -92,7 +131,7 @@
     border-radius: 1em;
 }
 
-.candidatos-de-partido .candidato-img-container {
+.candidatos-de-partido .atm-img-container {
     margin-left: -1em;
 }
 
@@ -118,6 +157,9 @@
     border-top-right-radius: 1em;
 }
 
+
+/* el footer */
+
 .footer {
     padding-top: 5px;
     background-color: #1f5990;
@@ -125,9 +167,6 @@
     text-align: center;
 }
 
-/*.footer div {
-    background-color:  #1f5990;
-}*/
 .footer img {
     width: 100%;
     height: auto;

@@ -28,6 +28,9 @@ class Candidato(models.Model):
         s = search(r'.*twitter.com/(?P<handle>.*)', self.twitter)
         return s.group('handle') if s else None
 
+    def titulo(self):
+        return u'Candidato por ' + self.partido.nombre
+
     def get_absolute_url(self):
         return reverse('candidatos.views.perfil_candidato', args=[str(self.id)])
 
