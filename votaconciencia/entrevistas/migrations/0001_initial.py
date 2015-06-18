@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('elecciones', '__first__'),
+        ('candidatos', '0001_initial'),
     ]
 
     operations = [
@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
             name='EntrevistaCandidato',
             fields=[
                 ('entrevista_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='entrevistas.Entrevista')),
-                ('entrevistado', models.ForeignKey(to='elecciones.Candidato')),
+                ('entrevistado', models.ForeignKey(to='candidatos.Candidato')),
             ],
             options={
                 'verbose_name': 'Entrevista a candidato',
@@ -52,7 +52,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('foto', models.ImageField(upload_to=b'')),
                 ('nombre', models.CharField(max_length=50)),
-                ('titulo', models.CharField(max_length=250)),
+                ('bio', models.TextField()),
             ],
             options={
                 'verbose_name': 'Personalidad',

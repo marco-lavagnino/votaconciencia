@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('elecciones', '0010_auto_20150615_0301'),
+        ('elecciones', '0001_initial'),
         ('partidos', '0001_initial'),
     ]
 
@@ -23,6 +23,7 @@ class Migration(migrations.Migration):
                 ('facebook', models.URLField(null=True)),
                 ('pagina_personal', models.URLField(null=True)),
                 ('boleta', models.ImageField(null=True, upload_to=b'', blank=True)),
+                ('alianza', models.ForeignKey(related_name='candidatos', blank=True, to='partidos.Alianza', null=True)),
                 ('eleccion', models.ForeignKey(related_name='candidatos', to='elecciones.Eleccion')),
                 ('partido', models.ForeignKey(related_name='candidatos', to='partidos.Partido')),
             ],
