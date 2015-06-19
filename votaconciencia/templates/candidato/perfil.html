@@ -2,7 +2,22 @@
 {% load staticfiles %}
 
 {% block contenedor %}
-<div class="col-md-12">
+
+<div>
+<a href="{% url 'eleccion_candidatos' candidato.eleccion.id %}">
+    <button type="button" class="btn btn-lg btn-default" style="float: left">
+        <span class="glyphicon glyphicon-menu-left"></span> Elecciones {{ candidato.eleccion.nombre }}
+    </button>
+</a>
+
+<a href="{% url 'perfil_partido' candidato.partido.id %}" style="float: right">
+    <button type="button" class="btn btn-lg btn-info">Mirá otros candidatos del {{candidato.partido.abreviacion}}</button>
+</a>
+<br><br><br>
+</div>
+
+<div class="row">
+<div class="col-md-4">
     <div class="thumbnail img-responsive sin-borde">
       <img src="{{candidato.foto.url}}" >
       <div class="caption">
@@ -10,16 +25,21 @@
       </div>
     </div>
 </div>
-<div class="col-md-12">
+<div class="col-md-8">
       <h2>Biografia</h2>
       <p>{{candidato.bio|safe}}</p>
-      <h2>{{candidato.nombre}} en Twitter</h2>
-      {% with candidato.cuenta_tw as handle %}
-          {% include "home/twitter.html" %}
-      {% endwith %}
+{% if candidato.entrevistas.all %}
+  <a href="{% url 'entrevista_individual' candidato.entrevistas.last.id %}">
+    <button type="button" class="btn btn-lg btn-success" style="float: right">
+        Ver entrevista <span class="glyphicon glyphicon-menu-right"></span>
+    </button>
+  </a>
+{% endif %}
+</div>
 </div>
 
-<div class="col-md-12">
+<div class="row">
+<div class="col-md-7">
     <h2>Propuestas:</h2>
     <ul style="text-align: left;">
     {%for p in candidato.propuestas.all %}
@@ -29,4 +49,28 @@
     {%endfor%}
     </ul>
 </div>
+
+<div class="col-md-5">
+<h2>{{candidato.nombre}} en Twitter</h2>
+      {% with candidato.cuenta_tw as handle %}
+          {% include "home/twitter.html" %}
+      {% endwith %}
+</div>
+</div>
+
+
+<div>
+<a href="{% url 'eleccion_candidatos' candidato.eleccion.id %}">
+    <button type="button" class="btn btn-lg btn-default" style="float: left">
+        <span class="glyphicon glyphicon-menu-left"></span> Elecciones {{ candidato.eleccion.nombre }}
+    </button>
+</a>
+
+<a href="{% url 'perfil_partido' candidato.partido.id %}" style="float: right">
+    <button type="button" class="btn btn-lg btn-info">Mirá otros candidatos del {{candidato.partido.abreviacion}}</button>
+</a>
+<br><br><br>
+</div>
+
+
 {% endblock contenedor %}

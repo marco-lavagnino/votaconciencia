@@ -32,7 +32,7 @@ class Entrevista(models.Model):
 
 
 class EntrevistaCandidato(Entrevista):
-    entrevistado = models.ForeignKey('candidatos.Candidato')
+    entrevistado = models.ForeignKey('candidatos.Candidato', related_name='entrevistas')
 
     class Meta:
         verbose_name = "Entrevista a candidato"
@@ -43,7 +43,7 @@ class EntrevistaCandidato(Entrevista):
 
 
 class EntrevistaPersonalidad(Entrevista):
-    entrevistado = models.ForeignKey('Personalidad')
+    entrevistado = models.ForeignKey('Personalidad', related_name='entrevistas')
 
     class Meta:
         verbose_name = "Entrevista a personalidad"

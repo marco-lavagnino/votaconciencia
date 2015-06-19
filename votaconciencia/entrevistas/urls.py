@@ -4,5 +4,5 @@ from entrevistas import views
 
 urlpatterns = patterns('',
     url(r'(?P<id>\d+)', views.entrevista_individual, name='entrevista_individual'),
-    url(r'$', views.index_entrevistas , name='entrevista'),
+    url(r'$', views.index_entrevistas , name='entrevistas'),
 )

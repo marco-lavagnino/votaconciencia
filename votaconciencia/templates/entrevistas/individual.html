@@ -1,23 +1,47 @@
 {% extends "base.html" %}
 
 {% block contenedor %}
-<div class="col-md-12">
+
+<div>
+<a href="{% url 'entrevistas' %}" >
+    <button type="button" class="btn btn-lg btn-default" style="float: left">
+        <span class="glyphicon glyphicon-menu-left"></span> Ver todas las entrevistas
+    </button>
+</a>
+
+{% if entrevista.entrevistado.partido.id %}
+<a href="{% url 'perfil_candidato' entrevista.entrevistado.id %}" style="float: right">
+    <button type="button" class="btn btn-lg btn-success">Leé las propuestas de {{entrevista.entrevistado.nombre}}</button>
+</a>
+{% endif %}
+
+<br><br><br>
+</div>
+
+<div class="row">
+
+<div class="col-md-4">
     <div class="thumbnail img-responsive sin-borde">
       <img src="{{entrevista.entrevistado.foto.url}}" >
       <div class="caption">
-        <h1>Entrevista a {{entrevista.entrevistado.nombre}}</h1>
+        <h1>{{entrevista.entrevistado.nombre}}</h1>
       </div>
     </div>
 </div>
-<div class="col-md-12">
-      <div style="font-style: italic;">
-        {{entrevista.entrevistado.bio|safe}}
-      </div>
-      <br>
-      <br>
-      <div style="text-align: left;">
-      {{entrevista.contenido | safe}}
-      </div>
+
+<div class="col-md-8">
+  <h2>Biografía</h2>
+  <div style="font-style: italic;">
+    {{entrevista.entrevistado.bio|safe}}
+  </div>
+  <br>
+  <br>
+</div>
+
+</div>
+
+<div style="text-align: left;">
+{{entrevista.contenido | safe}}
 </div>
 
 {% endblock contenedor %}

@@ -2,6 +2,16 @@
 {% load staticfiles %}
 
 {% block contenedor %}
+
+<div class="row">
+<a href="/" >
+    <button type="button" class="btn btn-lg btn-default" style="float: left">
+        <span class="glyphicon glyphicon-menu-left"></span> Inicio
+    </button>
+</a>
+</div>
+
+
 <h1>Partidos</h1>
 <div class="line-separator"></div>
 {% for partido in partidos %}

@@ -3,6 +3,19 @@
 
 {% block contenedor %}
 
+<div>
+<a href="{% url 'elecciones' %}">
+    <button type="button" class="btn btn-lg btn-default" style="float: left">
+        <span class="glyphicon glyphicon-menu-left"></span> Otras elecciones
+    </button>
+</a>
+
+<a href="{% url 'eleccion_informacion' eleccion.id %}" style="float: right">
+    <button type="button" class="btn btn-lg btn-info">Todo lo que tenés que saber para esta elección</button>
+</a>
+<br><br><br>
+</div>
+
 <h1>Candidatos de las elecciones {{ eleccion.nombre }}</h1>
 <div class="line-separator"></div>
 
@@ -32,5 +45,18 @@
     </div>
 {% endfor %}
 {% endif %}
+
+<div>
+<a href="{% url 'elecciones' %}">
+    <button type="button" class="btn btn-lg btn-default" style="float: left">
+        <span class="glyphicon glyphicon-menu-left"></span> Otras elecciones
+    </button>
+</a>
+
+<a href="{% url 'eleccion_informacion' eleccion.id %}" style="float: right">
+    <button type="button" class="btn btn-lg btn-info">Todo lo que tenés que saber para esta elección</button>
+</a>
+<br><br><br>
+</div>
 
 {% endblock contenedor %}
