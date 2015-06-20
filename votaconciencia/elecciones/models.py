@@ -6,6 +6,7 @@ from django.core.urlresolvers import reverse
 class Eleccion(models.Model):
     nombre = models.CharField(max_length=40)
     fecha = models.DateField()
+    titulo_en_juego = models.CharField(max_length=50, null=True, blank=True)
     informacion = models.TextField(null=True, blank=True)
 
     class Meta:

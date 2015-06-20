@@ -16,7 +16,12 @@
 <br><br><br>
 </div>
 
+{% if eleccion.titulo_en_juego %}
+<h1>Candidatos a {{ eleccion.titulo_en_juego }}</h1>
+{% else %}
 <h1>Candidatos de las elecciones {{ eleccion.nombre }}</h1>
+{% endif %}
+
 <div class="line-separator"></div>
 
 {% for partido, candidatos in candidatos %}
