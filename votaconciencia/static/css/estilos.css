@@ -6,14 +6,29 @@
     margin-bottom: 2em;
 }
 
-.navbar {
-    font-family: 'Lato', sans-serif;
+.sin-borde{
+    border: solid 0px transparent;
 }
 
-.navbar-brand img {
-    /*width: 100%;*/
-    margin-top: -20px;
+.separador{
+    height: 10px;
+    border-bottom: solid 1px #ddd; 
 }
+
+/* navbar */
+
+.navbar-brand img {
+    height: 40px;
+    width: auto;
+    margin-top: -7px;
+}
+
+.navbar-collapse img {
+    width: auto;
+    height: 3rem;
+}
+
+/* botones */
 
 .boton-inicio {
     padding: 40em;
@@ -25,28 +40,6 @@
     width: auto;
     height: 5rem;
 }
-
-.navbar-collapse img {
-    width: auto;
-    height: 3rem;
-}
-
-.sin-borde{
-    border: solid 0px transparent;
-}
-.jumbotron{
-    background-color: transparent;
-}
-
-.jumbotron p {
-    width: 70%;
-}
-
-.separador{
-    height: 10px;
-    border-bottom: solid 1px #ddd; 
-}
-
 
 /* atomos */
 
@@ -174,14 +167,26 @@
 
 .footer {
     margin-top: 5em;
-    padding-top: 5px;
+    padding-top: 2em;
+    padding-bottom: 2em;
     background-color: #1f5990;
     color: #1f5990;
     text-align: center;
+    font-family: 'Lato', sans-serif;
 }
+
 
 .footer img {
     width: 100%;
     height: auto;
-    color: white;
+    vertical-align: middle;
+}
+
+.img-container {
+    display: inline-block;
+    height: 100%;
+    margin-right: 2.5%;
+    margin-left: 2.5%;
+    width: 15%;
+    vertical-align: middle;
 }
