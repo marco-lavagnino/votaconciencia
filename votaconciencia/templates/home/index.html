@@ -1,32 +1,31 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block contenedor %}
 <div class="text-center" style="height: 100%;">
-<h1>Bienvenido</h1>
-<div class="col-md-12 col-xs-12 col-sm-12">
+<h2><span style="color:#33CCFF">Bienvenido. Todo lo que necesitás saber para las elecciones,</span> encontralo acá.</h2>
+<br>
+<div class="col-md-6">
     <a href="/elecciones/">
-        <button type="button" class="btn col-xs-12 col-sm-12 boton-inicio btn-lg btn-info">Elecciones</button>
+        <button type="button" class="btn boton-inicio btn-block btn-info"><img src="{% static 'logos/elecciones.png' %}"></button>
     </a>
-</div>
-<div class="col-md-12 col-xs-12 col-sm-12">
     <a href="/entrevistas/">
-        <button type="button" class="btn col-xs-12 col-sm-12 boton-inicio btn-lg btn-warning">Entrevistas</button>
+        <button type="button" class="btn boton-inicio btn-block btn-warning"><img src="{% static 'logos/entrevistas.png' %}"></button>
     </a>
-</div>
-<div class="col-md-12 col-xs-12 col-sm-12">
     <a href="/partidos/">
-        <button type="button" class="btn col-xs-12 col-sm-12 boton-inicio btn-lg btn-danger">Partidos</button>
+        <button type="button" class="btn boton-inicio btn-block btn-danger"><img src="{% static 'logos/partidos.png' %}"></button>
     </a>
-</div>
-<div class="col-md-12 col-xs-12 col-sm-12">
     <a href="/calendario/">
-        <button type="button" class="btn col-xs-12 col-sm-12 boton-inicio btn-lg btn-success">Calendario</button>
+        <button type="button" class="btn boton-inicio btn-block btn-success"><img src="{% static 'logos/calendario.png' %}"></button>
+    </a>
+    <a href="/quienes_somos/">
+        <button type="button" class="btn boton-inicio btn-block btn-primary"><img src="{% static 'logos/quienes_somos.png' %}"></button>
     </a>
 </div>
-<div class="col-md-12 col-xs-12 col-sm-12">
-    <a href="/quienes_somos/">
-        <button type="button" class="btn col-xs-12 col-sm-12 boton-inicio btn-lg btn-success">Quienes Somos</button>
-    </a>
+<div class="col-md-6">
+{% with "votaconciencia" as handle %}
+    {% include "home/twitter.html" %}
+{% endwith %}
 </div>
 </div>
 <div style="height: 21em; margin:30px;"></div>

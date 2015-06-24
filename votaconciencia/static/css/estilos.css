@@ -11,8 +11,8 @@
 }
 
 .navbar-brand img {
-    width: 100%;
-    margin-top: -5px;
+    /*width: 100%;*/
+    margin-top: -20px;
 }
 
 .boton-inicio {
@@ -20,6 +20,17 @@
     margin: 1em auto;
     /*width: 40em;*/
 }
+
+.boton-inicio img {
+    width: auto;
+    height: 5rem;
+}
+
+.navbar-collapse img {
+    width: auto;
+    height: 3rem;
+}
+
 .sin-borde{
     border: solid 0px transparent;
 }

@@ -11,13 +11,15 @@
 </a>
 </div>
 <h1>Elecciones</h1>
+<div class="col-md-8 col-md-offset-2">
 {% for eleccion in elecciones %}
 <p>
     <a href="{{eleccion.get_absolute_url}}">
-    <button type="button" class="btn col-md-12 col-xs-12 col-sm-12 boton-inicio btn-lg btn-info">{{eleccion.nombre}}</button>
+    <button type="button" class="btn col-xs-12 boton-inicio btn-lg btn-info">{{eleccion.nombre}}</button>
     </a>
 </p>
 {% endfor %}
+</div>
 <div style="height: 22em;"></div>
 
 {% endblock contenedor %}
