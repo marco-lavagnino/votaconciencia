@@ -10,9 +10,12 @@
     </button>
 </a>
 
+{% if eleccion.informacion %}
 <a href="{% url 'eleccion_informacion' eleccion.id %}" style="float: right">
     <button type="button" class="btn btn-lg btn-info">Todo lo que tenés que saber para esta elección</button>
 </a>
+{% endif %}
+
 <br><br><br>
 </div>
 
