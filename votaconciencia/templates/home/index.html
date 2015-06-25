@@ -6,19 +6,19 @@
 <h2><span style="color:#33CCFF">Bienvenido. Todo lo que necesitás saber para las elecciones,</span> encontralo acá.</h2>
 <br>
 <div class="col-md-6">
-    <a href="/elecciones/">
+    <a href="{% url 'elecciones' %}">
         <button type="button" class="btn boton-inicio btn-block btn-info"><img src="{% static 'logos/elecciones.png' %}"></button>
     </a>
-    <a href="/entrevistas/">
+    <a href="{% url 'entrevistas' %}">
         <button type="button" class="btn boton-inicio btn-block btn-warning"><img src="{% static 'logos/entrevistas.png' %}"></button>
     </a>
-    <a href="/partidos/">
+    <a href="{% url 'partidos' %}">
         <button type="button" class="btn boton-inicio btn-block btn-danger"><img src="{% static 'logos/partidos.png' %}"></button>
     </a>
-    <a href="/calendario/">
+    <a href="{% url 'calendario' %}">
         <button type="button" class="btn boton-inicio btn-block btn-success"><img src="{% static 'logos/calendario.png' %}"></button>
     </a>
-    <a href="/quienes_somos/">
+    <a href="{% url 'quienes_somos' %}">
         <button type="button" class="btn boton-inicio btn-block btn-primary"><img src="{% static 'logos/quienes_somos.png' %}"></button>
     </a>
 </div>

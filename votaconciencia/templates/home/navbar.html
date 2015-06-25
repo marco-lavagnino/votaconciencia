@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="{% url 'inicio' %}">
         <img src="{% static 'logos/logo_votaconciencia.png' %}">
       </a>
     </div>
@@ -17,12 +17,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/elecciones/"><img src="{% static 'logos/elecciones.png' %}"></a></li>
-        <li><a href="/entrevistas/">
+        <li><a href="{% url 'elecciones' %}"><img src="{% static 'logos/elecciones.png' %}"></a></li>
+        <li><a href="{% url 'entrevistas' %}">
 <img src="{% static 'logos/entrevistas.png' %}"></a></li>
-        <li><a href="/calendario/">
+        <li><a href="{% url 'calendario' %}">
 <img src="{% static 'logos/calendario.png' %}"></a></li>
-        <li><a href="/quienes_somos/">
+        <li><a href="{% url 'quienes_somos' %}">
 <img src="{% static 'logos/quienes_somos.png' %}"></a></li>
       </ul>
     </div><!-- /.navbar-collapse -->

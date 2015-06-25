@@ -4,5 +4,5 @@ from general import views
 
 urlpatterns = patterns('',
     url(r'quienes_somos/', views.quienes_somos , name='quienes_somos'),
-    url(r'$^', views.index , name='inicio'),
+    url(r'^$', views.index , name='inicio'),
 )
