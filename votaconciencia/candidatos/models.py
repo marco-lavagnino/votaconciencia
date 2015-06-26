@@ -14,6 +14,7 @@ class Candidato(models.Model):
     alianza = models.ForeignKey('partidos.Alianza', related_name='candidatos', null=True, blank=True)
     eleccion = models.ForeignKey('elecciones.Eleccion', related_name='candidatos')
     legislador = models.BooleanField(default=False, verbose_name='es candidato a legislador?')
+    spot = models.TextField()
 
     class Meta:
         verbose_name = "Candidato"
