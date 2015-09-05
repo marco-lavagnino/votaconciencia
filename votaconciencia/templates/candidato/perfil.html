@@ -17,28 +17,51 @@
 </div>
 
 <div class="row">
-<div class="col-md-4">
+
+  <div class="col-md-4">
     <div class="thumbnail img-responsive sin-borde">
       <img src="{{candidato.foto.url}}" >
       <div class="caption">
         <h1>{{candidato.nombre}}</h1>
       </div>
     </div>
-</div>
-<div class="col-md-8">
+  </div>
+
+  <div class="col-md-8">
+
+    <div class="row">
       <h2>Biografia</h2>
       <p>{{candidato.bio|safe}}</p>
-{% if candidato.entrevistas.all %}
-  <a href="{% url 'entrevista_individual' candidato.entrevistas.last.id %}">
-    <button type="button" class="btn btn-lg btn-success" style="float: right">
-        Ver entrevista <span class="glyphicon glyphicon-menu-right"></span>
-    </button>
-  </a>
-{% endif %}
-</div>
-<div class="col-md-12">
-  <p>{{candidato.spot|safe}}</p>
-</div>
+      {% if candidato.entrevistas.all %}
+        <a href="{% url 'entrevista_individual' candidato.entrevistas.last.id %}">
+          <button type="button" class="btn btn-lg btn-success" style="float: right">
+              Ver entrevista <span class="glyphicon glyphicon-menu-right"></span>
+          </button>
+        </a>
+      {% endif %}
+    </div>
+
+    <br><br>
+    <div class="row"  style:"text-align: left">
+      {% if candidato.facebook %}
+      <div class="col-sm-6">
+      <a href="{{candidato.facebook}}" class="nicefont">
+        <img src="{% static "logos/facebook.png" %}" style="width: 3rem; height: 3rem">
+        {{ candidato.nombre }} en Facebook
+      </a>
+      </div>
+      {% endif %}
+      {% if candidato.pagina_personal %}
+      <div class="col-sm-6">
+      <a href="{{candidato.pagina_personal}}" class="nicefont">
+        <img src="{% static "logos/webpage.png" %}" style="width: 3rem; height: 3rem">
+        Visitá la página de {{ candidato.nombre }}
+      </a>
+      </div>
+      {% endif %}
+    </div>
+
+  </div>
 </div>
 
 <div class="row">
@@ -50,14 +73,22 @@
     {%empty%}
       <p class="text-danger" style="text-align: center;">El candidato no ha oficializado sus propuestas por el momento.</p>
     {%endfor%}
+
+  <p>{{candidato.spot|safe}}</p>
+
     </ul>
 </div>
 
 <div class="col-md-5">
+  {% if candidato.cuenta_tw %}
 <h2>{{candidato.nombre}} en Twitter</h2>
       {% with candidato.cuenta_tw as handle %}
           {% include "home/twitter.html" %}
       {% endwith %}
+  {% else %}
+<h2>{{candidato.nombre}} en Twitter</h2>
+    {{ candidato.nombre }} no tiene cuenta en twitter.
+  {% endif %}
 </div>
 </div>
 
