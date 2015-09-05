@@ -45,6 +45,8 @@ class EntrevistaCandidato(Entrevista):
 class EntrevistaPersonalidad(Entrevista):
     entrevistado = models.ForeignKey('Personalidad', related_name='entrevistas')
 
+    eleccion = models.ForeignKey('elecciones.Eleccion')
+
     class Meta:
         verbose_name = "Entrevista a personalidad"
         verbose_name_plural = "Entrevistas a personalidades"

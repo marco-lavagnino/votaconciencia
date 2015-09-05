@@ -123,6 +123,13 @@
     font-size: 150%;
 }
 
+.fixed-in-bottom {
+    position: fixed;
+    bottom: 1em;
+    left: 1em;
+    z-index: 1;
+}
+
 .candidatos-de-partido h2 {
     font-family: 'Ubuntu Condensed', sans-serif;
     color: white;

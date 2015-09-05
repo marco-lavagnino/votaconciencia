@@ -1,12 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from models import *
+from elecciones.models import Eleccion
 
-# Create your views here.
 
 def index_entrevistas (request):
-    entrevistas = list(EntrevistaCandidato.objects.all())
-    entrevistas += list(EntrevistaPersonalidad.objects.all())
-    return render(request, "entrevistas/index.html", {'entrevistas' : entrevistas})
+    elecciones = Eleccion.objects.all()
+    return render(request, "entrevistas/index.html", {'elecciones' : elecciones})
 
 def entrevista_individual (request, id):
     try:

@@ -12,7 +12,6 @@ class Candidato(models.Model):
     boleta = models.ImageField(null=True, blank=True)
     partido = models.ForeignKey('partidos.Partido', related_name='candidatos')
     alianza = models.ForeignKey('partidos.Alianza', related_name='candidatos', null=True, blank=True)
-    eleccion = models.ForeignKey('elecciones.Eleccion', related_name='candidatos')
     legislador = models.BooleanField(default=False, verbose_name='es candidato a legislador?')
     spot = models.TextField()
 
@@ -39,7 +38,6 @@ class Candidato(models.Model):
 class Propuesta(models.Model):
     candidato = models.ForeignKey('Candidato', related_name='propuestas')
     descripcion = models.TextField()
-    cumplida = models.BooleanField(default = False)
 
     class Meta:
         verbose_name = "Propuesta"

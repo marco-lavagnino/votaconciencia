@@ -14,11 +14,35 @@
 
 <h1>Entrevistas</h1>
 <div class="line-separator"></div>
-{% for entrevista in entrevistas %}
-{% include "atomos/entrevista.html" %}
-{% empty %}
-No hay entrevistas cargadas
-<div style="height: 17em;"></div>
-{% endfor %}
+
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  {% for eleccion in elecciones %}
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="heading{{ forloop.counter }}">
+      <h3 class="panel-title" style="font-family:'Ubuntu Condensed', sans-serif; font-size: 140%">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
+          Entrevistas sobre las elecciones {{ eleccion.nombre }}
+        </a>
+      </h4>
+    </div>
+    <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ forloop.counter }}">
+      <div class="panel-body">
+        {% for entrevista in eleccion.entrevistas %}
+        <div class="col-md-6">
+            {% include "atomos/entrevista.html" %}
+        </div>
+        {% empty %}
+            No hay entrevistas cargadas
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+
 
 {% endblock contenedor %}

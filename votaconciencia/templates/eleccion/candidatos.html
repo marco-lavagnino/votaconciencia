@@ -19,6 +19,18 @@
 <br><br><br>
 </div>
 
+{% if eleccion.popup %}
+<div class="alert alert-warning alert-dismissible nicefont fixed-in-bottom">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{ eleccion.popup }}
+</div>
+{% endif %}
+
+
+
+
 {% if eleccion.titulo_en_juego %}
 <h1>Candidatos a {{ eleccion.titulo_en_juego }}</h1>
 {% else %}
