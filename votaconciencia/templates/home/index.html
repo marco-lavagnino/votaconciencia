@@ -12,14 +12,24 @@
     <a href="{% url 'entrevistas' %}">
         <button type="button" class="btn boton-inicio btn-block btn-warning"><img src="{% static 'logos/entrevistas.png' %}"></button>
     </a>
+    <!--
     <a href="{% url 'partidos' %}">
         <button type="button" class="btn boton-inicio btn-block btn-danger"><img src="{% static 'logos/partidos.png' %}"></button>
     </a>
+-->
     <a href="{% url 'calendario' %}">
         <button type="button" class="btn boton-inicio btn-block btn-success"><img src="{% static 'logos/calendario.png' %}"></button>
     </a>
     <a href="{% url 'quienes_somos' %}">
         <button type="button" class="btn boton-inicio btn-block btn-primary"><img src="{% static 'logos/quienes_somos.png' %}"></button>
+    </a>
+    <br>
+    <br>
+    <p class="nicefont">Visitá las otras iniciativas de Fundeps:</p>
+    <a href="http://www.argentinavota.org">
+        <button type="button" class="btn boton-inicio btn-block btn-primary nicefont" style="font-size: 225%">
+            Argentina Vota <img src="{% static 'logos/argentina_vota.png' %}">
+        </button>
     </a>
 </div>
 <div class="col-md-6">

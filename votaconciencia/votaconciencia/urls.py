@@ -7,6 +7,7 @@ import elecciones
 import django_summernote
 
 urlpatterns = patterns('',
+    url(r'^summernote/', include('django_summernote.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^elecciones/', include('elecciones.urls')),
     url(r'^entrevistas/', include('entrevistas.urls')),
@@ -14,5 +15,4 @@ urlpatterns = patterns('',
     url(r'^candidatos/', include('candidatos.urls')),
     url(r'^partidos/', include('partidos.urls')),
     url(r'^', include('general.urls')),
-    url(r'^summernote/', include('django_summernote.urls')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -118,6 +118,11 @@
     overflow: hidden;
 }
 
+.nicefont {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 150%;
+}
+
 .candidatos-de-partido h2 {
     font-family: 'Ubuntu Condensed', sans-serif;
     color: white;
