@@ -1,29 +1,8 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-from elecciones.models import Cargo
 from re import search
 from partidos.models import Alianza, Partido
-
-class CandidatoQuerySet(models.QuerySet):
-    def por_cargo(self):
-        result = {}
-        for values in self.values('postulaciones__cargo__nombre').distinct():
-            cargo = Cargo.objects.get(nombre=values['postulaciones__cargo__nombre'])
-            result[cargo] = self.filter(postulaciones__cargo=cargo)
-        return result
-
-    def por_representacion(self):
-        result = {}
-
-        for values in self.exclude(alianza__isnull=True).values('alianza').distinct():
-            alianza_id = values['alianza']
-            result[Alianza.objects.get(id=alianza_id)] = self.filter(alianza_id=alianza_id)
-
-        for values in self.exclude(alianza__isnull=False).values('partido').distinct():
-            partido_id = values['partido']
-            result[Partido.objects.get(id=partido_id)] = self.filter(partido_id=partido_id)
-
-        return result
+from random import random
 
 
 class Candidato(models.Model):
@@ -38,7 +17,6 @@ class Candidato(models.Model):
     alianza = models.ForeignKey('partidos.Alianza', related_name='candidatos', null=True, blank=True)
     spot = models.TextField()
 
-    objects = CandidatoQuerySet.as_manager()
 
     class Meta:
         verbose_name = "Candidato"
@@ -59,6 +37,13 @@ class Candidato(models.Model):
 
     def get_absolute_url(self):
         return reverse('candidatos.views.perfil_candidato', args=[str(self.id)])
+
+    def porcentaje(self, eleccion=None):
+        if not eleccion:
+            eleccion = self.eleccion
+        postulaciones = Postulacion.objects.filter(eleccion__id=eleccion)
+        mi_postulacion = postulaciones.get(candidato__id=self.id)
+
 
 
 class Propuesta(models.Model):

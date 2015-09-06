@@ -29,21 +29,28 @@
 {% endif %}
 
 
-{% for cargo, candidatos in candidatos.por_cargo.items %}
+
+
+{% for cargo, postulaciones in postulaciones.por_cargo %}
+{% with votos_totales=postulaciones.votos_totales %}
+
 <h1>Candidatos a {{ cargo }}</h1>
 
 <div class="line-separator"></div>
-{% for partido, candidatos in candidatos.por_representacion.items %}
+{% for partido, postulaciones in postulaciones.por_representacion %}
     <div class="candidatos-de-partido text-center" style="background-color: {{ partido.color }};">
     <h2>{{ partido.abreviacion }}</h2>
     <div class="pool">
-    {% for candidato in candidatos %}
-        {% include "atomos/candidato.html" %}
+    {% for postulacion in postulaciones %}
+        {% with candidato=postulacion.candidato %}
+            {% include "atomos/candidato.html" %}
+        {% endwith %}
     {% endfor %}
     </div>
     </div>
 {% endfor %}
 
+{% endwith %}
 {% endfor %}
 
 

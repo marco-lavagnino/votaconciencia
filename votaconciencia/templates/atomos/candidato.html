@@ -4,6 +4,12 @@
 <a href="{{candidato.get_absolute_url}}"><img src="{{candidato.foto.url}}"></a>
 </div>
 <div class="caption">
+    {% if postulacion.votos %}
+        <br>
+        <span class="label label-warning">
+        votos: {% widthratio postulacion.votos votos_totales 100 %} %
+        </span>
+    {% endif %}
     <a href="{{candidato.get_absolute_url}}"><h3>{{candidato.nombre}}</h3></a>
     <a href="{{candidato.partido.get_absolute_url}}"><p>{{candidato.partido.abreviacion}}</p></a>
 </div>

@@ -4,7 +4,7 @@ from elecciones.models import Eleccion
 
 
 def index_entrevistas (request):
-    elecciones = Eleccion.objects.all()
+    elecciones = Eleccion.objects.order_by('-fecha')
     return render(request, "entrevistas/index.html", {'elecciones' : elecciones})
 
 def entrevista_individual (request, id):
