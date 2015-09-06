@@ -10,16 +10,27 @@
     </button>
 </a>
 </div>
+
 <h1>Elecciones</h1>
-<div class="col-md-8 col-md-offset-2">
+<div class="line-separator"></div>
+
+<div class="row text-center">
 {% for eleccion in elecciones %}
-<p>
-    <a href="{{eleccion.get_absolute_url}}">
-    <button type="button" class="btn col-xs-12 boton-inicio btn-lg btn-info">{{eleccion.nombre}}</button>
-    </a>
-</p>
+<a href="{{eleccion.get_absolute_url}}">
+<button type="button" class="btn boton-inicio btn-lg btn-info nicefont col-xs-2" style="margin-left:2%; margin-right:2%">
+    {% if eleccion.logo %}
+        <div style="background-image: url({{ eleccion.logo.url }})" class="new-image-container"></div>
+    {% else %}
+        <div style="background-image: url({% static 'logos/elecciones.jpg' %})" class="new-image-container"></div>
+    {% endif %}
+    <div>
+    {{eleccion.nombre}}
+    </div>
+</button>
+</a>
 {% endfor %}
 </div>
-<div style="height: 22em;"></div>
+
+<div style="height: 5em"></div>
 
 {% endblock contenedor %}

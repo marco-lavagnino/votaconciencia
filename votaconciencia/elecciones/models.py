@@ -6,6 +6,7 @@ from entrevistas.models import EntrevistaCandidato, EntrevistaPersonalidad
 class Eleccion(models.Model):
     nombre = models.CharField(max_length=40)
     fecha = models.DateField()
+    logo = models.ImageField(null=True, blank=True)
     titulo_en_juego = models.CharField(max_length=50, null=True, blank=True)
     informacion = models.TextField(null=True, blank=True)
     popup = models.TextField(null=True, blank=True)
