@@ -17,6 +17,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('elecciones', '0003_eleccion_candidatos'),
+        ('candidatos', '0004_auto_20150905_2103'),
     ]
 
     operations = [

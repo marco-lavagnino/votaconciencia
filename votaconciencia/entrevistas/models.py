@@ -1,7 +1,6 @@
 # -*- encoding: utf-8 -*-
 
 from django.db import models
-from candidatos.models import Candidato
 from django.core.urlresolvers import reverse
 
 class Personalidad(models.Model):

@@ -31,9 +31,10 @@
         {% for entrevista in eleccion.entrevistas %}
         <div class="col-md-6">
             {% include "atomos/entrevista.html" %}
+            <br>
         </div>
         {% empty %}
-            No hay entrevistas cargadas
+            No hay entrevistas cargadas aún
         {% endfor %}
       </div>
     </div>

@@ -4,7 +4,7 @@
 {% block contenedor %}
 
 <div>
-<a href="{% url 'eleccion_candidatos' candidato.eleccion.id %}">
+<a href="{% url 'eleccion_candidatos' candidato.postulaciones.last.eleccion.id %}">
     <button type="button" class="btn btn-lg btn-default" style="float: left">
         <span class="glyphicon glyphicon-menu-left"></span> Elecciones {{ candidato.eleccion.nombre }}
     </button>
@@ -45,7 +45,7 @@
     <div class="row"  style:"text-align: left">
       {% if candidato.facebook %}
       <div class="col-sm-6">
-      <a href="{{candidato.facebook}}" class="nicefont">
+      <a href="{{candidato.facebook}}" target="_blank" class="nicefont">
         <img src="{% static "logos/facebook.png" %}" style="width: 3rem; height: 3rem">
         {{ candidato.nombre }} en Facebook
       </a>
@@ -53,7 +53,7 @@
       {% endif %}
       {% if candidato.pagina_personal %}
       <div class="col-sm-6">
-      <a href="{{candidato.pagina_personal}}" class="nicefont">
+      <a href="{{candidato.pagina_personal}}" target="_blank" class="nicefont">
         <img src="{% static "logos/webpage.png" %}" style="width: 3rem; height: 3rem">
         Visitá la página de {{ candidato.nombre }}
       </a>
@@ -80,13 +80,12 @@
 </div>
 
 <div class="col-md-5">
-  {% if candidato.cuenta_tw %}
 <h2>{{candidato.nombre}} en Twitter</h2>
+  {% if candidato.cuenta_tw %}
       {% with candidato.cuenta_tw as handle %}
           {% include "home/twitter.html" %}
       {% endwith %}
   {% else %}
-<h2>{{candidato.nombre}} en Twitter</h2>
     {{ candidato.nombre }} no tiene cuenta en twitter.
   {% endif %}
 </div>
@@ -94,7 +93,7 @@
 
 
 <div>
-<a href="{% url 'eleccion_candidatos' candidato.eleccion.id %}">
+<a href="{% url 'eleccion_candidatos' candidato.postulaciones.last.eleccion.id %}">
     <button type="button" class="btn btn-lg btn-default" style="float: left">
         <span class="glyphicon glyphicon-menu-left"></span> Elecciones {{ candidato.eleccion.nombre }}
     </button>

@@ -1,16 +1,16 @@
 <div style="text-align: left; display: table;">
 <div class="">
 
-<div class="entr-img-container">
-<a href="{{entrevista.get_absolute_url}}"><img src="{{entrevista.entrevistado.foto.url}}"></a>
-</div>
+<a href="{{entrevista.get_absolute_url}}">
+<div class="col-xs-3" style="background: url({{entrevista.entrevistado.foto.url}}) no-repeat 50% 50%; background-size: cover; height: 200px"></div>
+</a>
 
 </div>
-<div class="entr-descripcion">
+<div class="col-xs-9">
 
-<h2>Entrevista a {{entrevista.entrevistado.nombre}}</h2>
+    <h2>{{entrevista.entrevistado.nombre}}</h2>
 
-<p>{{entrevista.entrevistado.bio|safe}}</p>
-<a href="{{entrevista.get_absolute_url}}">Leer entrevista</a>
-</div>
+    <p>{{entrevista.entrevistado.bio|safe}}</p>
+    <a href="{{entrevista.get_absolute_url}}" style="float: right">Leer entrevista</a>
+    </div>
 </div>

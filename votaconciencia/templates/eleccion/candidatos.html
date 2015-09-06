@@ -29,17 +29,11 @@
 {% endif %}
 
 
-
-
-{% if eleccion.titulo_en_juego %}
-<h1>Candidatos a {{ eleccion.titulo_en_juego }}</h1>
-{% else %}
-<h1>Candidatos de las elecciones {{ eleccion.nombre }}</h1>
-{% endif %}
+{% for cargo, candidatos in candidatos.por_cargo.items %}
+<h1>Candidatos a {{ cargo }}</h1>
 
 <div class="line-separator"></div>
-
-{% for partido, candidatos in candidatos %}
+{% for partido, candidatos in candidatos.por_representacion.items %}
     <div class="candidatos-de-partido text-center" style="background-color: {{ partido.color }};">
     <h2>{{ partido.abreviacion }}</h2>
     <div class="pool">
@@ -50,21 +44,10 @@
     </div>
 {% endfor %}
 
-{% if legisladores %}
-<h1>Candidatos a legisladores</h1>
-<div class="line-separator"></div>
-
-{% for partido, candidatos in legisladores %}
-    <div class="candidatos-de-partido text-center" style="background-color: {{ partido.color }};">
-    <h2>{{ partido.abreviacion }}</h2>
-    <div class="pool">
-    {% for candidato in candidatos %}
-        {% include "atomos/candidato.html" %}
-    {% endfor %}
-    </div>
-    </div>
 {% endfor %}
-{% endif %}
+
+
+
 
 <div>
 <a href="{% url 'elecciones' %}">

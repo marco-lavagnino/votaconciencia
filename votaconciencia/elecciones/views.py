@@ -25,9 +25,9 @@ def eleccion_informacion(request, id):
     return render(request, 'eleccion/informacion.html', {'eleccion':eleccion})
 
 def eleccion_candidatos(request, id):
+    eleccion = get_object_or_404(Eleccion, pk=id)
     dictionary = {
-        'candidatos' : agrupa_por_representacion(elecciones__id=id, legislador=False),
-        'legisladores' : agrupa_por_representacion(elecciones__id=id, legislador=True),
-        'eleccion': Eleccion.objects.get(id=id)
+        'candidatos' : Candidato.objects.filter(postulaciones__eleccion__id=eleccion.id).distinct(),
+        'eleccion': eleccion,
     }
     return render(request, 'eleccion/candidatos.html', dictionary)
