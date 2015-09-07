@@ -124,9 +124,9 @@
 }
 
 .fixed-in-bottom {
-    position: fixed;
-    bottom: 1em;
-    left: 1em;
+    /*position: fixed;*/
+    /*bottom: 1em;*/
+    /*left: 1em;*/
     z-index: 1;
 }
 

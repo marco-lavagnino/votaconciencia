@@ -17,7 +17,7 @@
 <div class="row text-center">
 {% for eleccion in elecciones %}
 <a href="{{eleccion.get_absolute_url}}">
-<button type="button" class="btn boton-inicio btn-lg btn-info nicefont col-xs-2" style="margin-left:2%; margin-right:2%">
+<button type="button" class="btn boton-inicio btn-lg btn-info nicefont" style="width: 10em; margin-left:2%; margin-right:2%">
     {% if eleccion.logo %}
         <div style="background-image: url({{ eleccion.logo.url }})" class="new-image-container"></div>
     {% else %}
