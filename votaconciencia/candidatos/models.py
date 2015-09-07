@@ -15,7 +15,7 @@ class Candidato(models.Model):
     boleta = models.ImageField(null=True, blank=True)
     partido = models.ForeignKey('partidos.Partido', related_name='candidatos')
     alianza = models.ForeignKey('partidos.Alianza', related_name='candidatos', null=True, blank=True)
-    spot = models.TextField()
+    spot = models.TextField(null=True, blank=True)
 
 
     class Meta:
