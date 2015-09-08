@@ -1,10 +1,14 @@
 from django.shortcuts import render, get_object_or_404
 from models import *
 from elecciones.models import Eleccion
+from django.db.models import Q
 
 
 def index_entrevistas (request):
-    elecciones = Eleccion.objects.order_by('-fecha')
+    # elecciones = Eleccion.objects.filter(postulaciones__candidato__entrevist__count__gt=0).order_by('-fecha')
+    tienen_candidatos = EntrevistaCandidato.objects.values('entrevistado__postulaciones__eleccion__id').distinct()
+    tienen_personalidades = EntrevistaPersonalidad.objects.values('eleccion__id').distinct()
+    elecciones = Eleccion.objects.filter(Q(id__in=tienen_candidatos) | Q(id__in=tienen_personalidades))
     return render(request, "entrevistas/index.html", {'elecciones' : elecciones})
 
 def entrevista_individual (request, id):
