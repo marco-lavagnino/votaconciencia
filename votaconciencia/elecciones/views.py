@@ -18,8 +18,4 @@ def eleccion_informacion(request, id):
 
 def eleccion_candidatos(request, id):
     eleccion = get_object_or_404(Eleccion, pk=id)
-    dictionary = {
-        'postulaciones' : eleccion.postulaciones,
-        'eleccion': eleccion,
-    }
-    return render(request, 'eleccion/candidatos.html', dictionary)
+    return render(request, 'eleccion/candidatos.html', {'eleccion':eleccion})

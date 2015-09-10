@@ -24,4 +24,3 @@ class SumCandidato(SummernoteModelAdmin):
         SumPropuesta,
     ]
 
-

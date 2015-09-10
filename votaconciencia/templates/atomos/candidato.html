@@ -7,7 +7,7 @@
     {% if postulacion.votos %}
         <br>
         <span class="label label-warning">
-        votos: {% widthratio postulacion.votos votos_totales 100 %} %
+        votos: {% widthratio postulacion.votos cargo.votos_totales 100 %} %
         </span>
     {% endif %}
     <a href="{{candidato.get_absolute_url}}"><h3>{{candidato.nombre}}</h3></a>

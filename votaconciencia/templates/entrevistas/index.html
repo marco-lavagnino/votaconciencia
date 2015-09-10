@@ -28,7 +28,7 @@
     </div>
     <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ forloop.counter }}">
       <div class="panel-body">
-        {% for entrevista in eleccion.entrevistas %}
+        {% for entrevista in eleccion.entrevistas_relacionadas %}
         <div class="col-md-6">
             {% include "atomos/entrevista.html" %}
             <br>

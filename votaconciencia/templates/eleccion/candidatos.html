@@ -31,13 +31,31 @@
 
 
 
-{% for cargo, postulaciones in postulaciones.por_cargo %}
-{% with votos_totales=postulaciones.votos_totales %}
+{% for cargo in eleccion.cargos.all %}
 
-<h1>Candidatos a {{ cargo }}</h1>
+<h1>{{ cargo.tipo_candidatura }} a {{ cargo.nombre }}</h1>
 
 <div class="line-separator"></div>
-{% for partido, postulaciones in postulaciones.por_representacion %}
+
+<div>
+{% if cargo.votos_en_blanco %}
+<span class="label label-info">
+    Votos en blanco : {% widthratio cargo.votos_en_blanco cargo.votos_totales 100 %} %
+</span>
+{% endif %}
+{% if cargo.votos_nulos %}
+<span class="label label-default">
+    Votos nulos : {% widthratio cargo.votos_nulos cargo.votos_totales 100 %} %
+</span>
+{% endif %}
+{% if cargo.votos_impugnados %}
+<span class="label label-danger">
+    Votos impugnados : {% widthratio cargo.votos_impugnados cargo.votos_totales 100 %} %
+</span>
+{% endif %}
+</div>
+
+{% for partido, postulaciones in cargo.agrupar_por_representacion %}
     <div class="candidatos-de-partido text-center" style="background-color: {{ partido.color }};">
     <h2>{{ partido.abreviacion }}</h2>
     <div class="pool">
@@ -50,7 +68,6 @@
     </div>
 {% endfor %}
 
-{% endwith %}
 {% endfor %}
 
 

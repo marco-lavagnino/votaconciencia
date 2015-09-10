@@ -4,7 +4,7 @@
 {% block contenedor %}
 
 <div>
-<a href="{% url 'eleccion_candidatos' candidato.postulaciones.last.eleccion.id %}">
+<a href="{% url 'eleccion_candidatos' candidato.postulaciones.last.cargo.eleccion.id %}">
     <button type="button" class="btn btn-lg btn-default" style="float: left">
         <span class="glyphicon glyphicon-menu-left"></span> Elecciones {{ candidato.eleccion.nombre }}
     </button>
@@ -93,7 +93,7 @@
 
 
 <div>
-<a href="{% url 'eleccion_candidatos' candidato.postulaciones.last.eleccion.id %}">
+<a href="{% url 'eleccion_candidatos' candidato.postulaciones.last.cargo.eleccion.id %}">
     <button type="button" class="btn btn-lg btn-default" style="float: left">
         <span class="glyphicon glyphicon-menu-left"></span> Elecciones {{ candidato.eleccion.nombre }}
     </button>
