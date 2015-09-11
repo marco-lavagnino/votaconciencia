@@ -9,6 +9,11 @@ from django_summernote.admin import SummernoteModelAdmin
 class InlineCargo(admin.StackedInline):
     model = Cargo
     extra = 0
+    fieldsets = [
+        (None, {
+            'fields' : ('nombre', 'tipo_candidatura', ('votos_impugnados', 'votos_en_blanco', 'votos_nulos'))
+            })
+    ]
 
 
 class EleccionForm(forms.ModelForm):

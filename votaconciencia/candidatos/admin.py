@@ -23,4 +23,5 @@ class SumCandidato(SummernoteModelAdmin):
         PostulacionInline,
         SumPropuesta,
     ]
+    list_filter = ('postulaciones__cargo__eleccion',)
 
