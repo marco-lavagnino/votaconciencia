@@ -1,4 +1,6 @@
 
+{% load elecciones_stats %}
+
 <div class="atomo">
 <div class="atm-img-container">
 <a href="{{candidato.get_absolute_url}}"><img src="{{candidato.foto.url}}"></a>
@@ -7,7 +9,7 @@
     {% if postulacion.votos %}
         <br>
         <span class="label label-warning">
-        votos: {% widthratio postulacion.votos cargo.votos_totales 100 %} %
+        votos: {% porcentaje postulacion.votos cargo.votos_totales %}
         </span>
     {% endif %}
     <a href="{{candidato.get_absolute_url}}"><h3>{{candidato.nombre}}</h3></a>

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load elecciones_stats %}
 
 {% block contenedor %}
 
@@ -40,17 +41,17 @@
 <div>
 {% if cargo.votos_en_blanco %}
 <span class="label label-info">
-    Votos en blanco : {% widthratio cargo.votos_en_blanco cargo.votos_totales 100 %} %
+    Votos en blanco : {% porcentaje cargo.votos_en_blanco cargo.votos_totales %}
 </span>
 {% endif %}
 {% if cargo.votos_nulos %}
 <span class="label label-default">
-    Votos nulos : {% widthratio cargo.votos_nulos cargo.votos_totales 100 %} %
+    Votos nulos : {% porcentaje cargo.votos_nulos cargo.votos_totales %}
 </span>
 {% endif %}
 {% if cargo.votos_impugnados %}
 <span class="label label-danger">
-    Votos impugnados : {% widthratio cargo.votos_impugnados cargo.votos_totales 100 %} %
+    Votos impugnados : {% porcentaje cargo.votos_impugnados cargo.votos_totales %}
 </span>
 {% endif %}
 </div>

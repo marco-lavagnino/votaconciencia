@@ -6,15 +6,9 @@ from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 from django_summernote.admin import SummernoteModelAdmin
 
 
-class InlineCargo(admin.StackedInline):
+class InlineCargo(admin.TabularInline):
     model = Cargo
     extra = 0
-    fieldsets = [
-        (None, {
-            'fields' : ('nombre', 'tipo_candidatura', ('votos_impugnados', 'votos_en_blanco', 'votos_nulos'))
-            })
-    ]
-
 
 class EleccionForm(forms.ModelForm):
     class Meta:
