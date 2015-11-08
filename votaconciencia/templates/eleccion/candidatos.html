@@ -56,18 +56,28 @@
 {% endif %}
 </div>
 
-{% for partido, postulaciones in cargo.agrupar_por_representacion %}
-    <div class="candidatos-de-partido text-center" style="background-color: {{ partido.color }};">
-    <h2>{{ partido.abreviacion }}</h2>
-    <div class="pool">
-    {% for postulacion in postulaciones %}
-        {% with candidato=postulacion.candidato %}
-            {% include "atomos/candidato.html" %}
+{% if eleccion.es_ballotage %}
+    {% for partido, postulaciones in cargo.agrupar_por_representacion %}
+        {% with candidato=postulaciones.0.candidato  %}
+            <div class="col-md-6">
+                {% include "candidato/perfil_stripped.html" %}
+            </div>
         {% endwith %}
     {% endfor %}
-    </div>
-    </div>
-{% endfor %}
+{% else %}
+    {% for partido, postulaciones in cargo.agrupar_por_representacion %}
+        <div class="candidatos-de-partido text-center" style="background-color: {{ partido.color }};">
+        <h2>{{ partido.abreviacion }}</h2>
+        <div class="pool">
+        {% for postulacion in postulaciones %}
+            {% with candidato=postulacion.candidato %}
+                {% include "atomos/candidato.html" %}
+            {% endwith %}
+        {% endfor %}
+        </div>
+        </div>
+    {% endfor %}
+{% endif %}
 
 {% endfor %}
 

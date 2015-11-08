@@ -6,7 +6,7 @@ from candidatos.models import Candidato
 from django.db.models import F, Sum
 
 def index_elecciones(request):
-    return render(request, 'eleccion/index.html', {'elecciones': Eleccion.objects.all()})
+    return render(request, 'eleccion/index.html', {'elecciones': Eleccion.objects.exclude(es_ballotage=True)})
 
 def eleccion_intermedio(request, id):
     eleccion = get_object_or_404(Eleccion, pk=id)

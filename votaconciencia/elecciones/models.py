@@ -13,6 +13,7 @@ class Eleccion(models.Model):
     logo = models.ImageField(null=True, blank=True)
     informacion = models.TextField(null=True, blank=True)
     popup = models.TextField(null=True, blank=True)
+    es_ballotage = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "Eleccion"
@@ -73,7 +74,10 @@ class Cargo(models.Model):
             partido_id = values['candidato__partido']
             result[Partido.objects.get(id=partido_id)] = self.postulaciones.filter(candidato__partido_id=partido_id)
 
-        return sorted(result.items(), key=lambda x:random())
+        if self.votos_nulos or self.votos_impugnados or self.votos_en_blanco:
+            return sorted(result.items(), key=lambda (part, post): -max(post, key=lambda p:p.votos).votos)
+        else:
+            return sorted(result.items(), key=lambda x:random())
 
 
 class Postulacion(models.Model):
